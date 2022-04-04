@@ -1,4 +1,9 @@
 /*HEADER*/
+body{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
 header {
     background: #50A780;
     height: 50px;
