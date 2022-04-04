@@ -1,0 +1,148 @@
+/*HEADER*/
+header {
+    background: #50A780;
+    height: 50px;
+}
+
+button#hamburgericon {
+    background: transparent;
+    border: none;
+}
+
+div#headerhref {
+    display: inline-block;
+    margin: 0 100px;
+}
+
+div#headerhref a {
+    color: black;
+    text-decoration: none;
+}
+
+header input[type="text"] {
+    width: 519px;
+    height: 35px;
+    border-radius: 200px;
+    border: transparent;
+}
+
+header input[type="text"]::placeholder {
+    color: gray;
+    padding-left: 20px;
+}
+
+header img#lupa {
+    position: absolute;
+    margin-left: -45px;
+    margin-top: 15px;
+}
+
+button.login {
+    width: 190px;
+    height: 35px;
+    border-radius: 200px;
+    border: none;
+    margin-left: 20px;
+}
+
+/*ASIDE*/
+aside {
+    width: 20%;
+    padding: 10px;
+    display: inline-block;
+    height: 1000px;
+    background: linear-gradient(180deg, rgb(80 167 128) 0%, rgb(79 167 128) 60%, rgb(255 255 255) 100%);
+}
+
+aside label {
+    width: 60%;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    padding-bottom: 5px;
+    border-bottom: 1px solid red;
+}
+
+nav ul li a {
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff85;
+    padding: 2px;
+}
+
+aside p {
+    padding: 10px 15px 0px 15px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    text-align: justify;
+}
+
+aside ul {
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+aside button {
+    background: #49A37B;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 100px auto;
+    display: block;
+    padding: 10px 24px;
+    color: white;
+}
+
+/*MAIN*/
+main {
+    display: inline-block;
+    width: 68%;
+    padding: 5%;
+}
+
+.pagestitle {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.pagestitle img {
+    display: inline-block;
+}
+
+.pagestitle h1,
+h2 {
+    display: inline-block;
+}
+
+.pagestitle h1 {
+    font-size: 29px;
+}
+
+#description{
+    margin-top: 60px;
+}
+
+#description p {
+    display: inline-block;
+    width: 30%;
+    padding: 10px;
+    margin-top: 100px;
+    text-align: justify;
+    position: absolute;
+}
+
+#description img {
+    display: inline-block;
+}
+
+section#infos-grid div {
+    display: inline-block;
+    width: 19%;
+    margin-bottom: 50px;
+}
