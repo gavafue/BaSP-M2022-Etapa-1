@@ -10,6 +10,9 @@
     </title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -103,7 +106,7 @@
         <div id="description">
 
             <img src="https://pazarlamaturkiye.com/wp-content/uploads/2018/05/Data-Management-Platform.png"
-                alt="Image exemplying Data Management Platform" width="450px">
+                alt="Image exemplying Data Management Platform" height="200px">
 
             <p>
                 Presentation of the company : A nice message about us that you
@@ -151,7 +154,7 @@
                 </p>
             </div>
         </section>
-        <div>
+        <div id="motives">
             <div>
                 <h3>
                     What can Trackgenix do for you?
@@ -191,68 +194,79 @@
                 </ul>
             </div>
         </div>
-        <div>
+        <div id="aboutus">
             <h3>
                 About us
             </h3>
-            <p>
+            <h4>
                 Confldentiality agreements
-            </p>
-            <img src="https://7wdata.be/wp-content/uploads/2016/12/data-management-2016s-hot-trends-and-what-to-watch-in-2017.png"
-                alt="First image into About us" width="250px">
-            <p>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget.
-                tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-                adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
-            </p>
-            <p>
-                Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget.
-                tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-                adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
-            </p>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDoixtLy-ItMGqrytvDksn0i9OTgIYOsL_X_RhDA87NlCUQ5ke4QQAQ3ZYBoOzcvPKqpc&usqp=CAU"
-                alt="Second Image into About us" width="250px">
+            </h4>
+            <div> <img id="aboutus-1"
+                    src="https://7wdata.be/wp-content/uploads/2016/12/data-management-2016s-hot-trends-and-what-to-watch-in-2017.png"
+                    alt="First image into About us" height="100px">
+                <p>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget.
+                    tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
+                    adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
+                </p>
+            </div>
+            <div>
+                <img id="aboutus-2"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDoixtLy-ItMGqrytvDksn0i9OTgIYOsL_X_RhDA87NlCUQ5ke4QQAQ3ZYBoOzcvPKqpc&usqp=CAU"
+                    alt="Second Image into About us" height="100px">
+                <p>
+                    Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget.
+                    tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
+                    adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
+                </p>
+
+            </div>
         </div>
+        <div class="contactform">
+            <h3>
+                Get system information
+            </h3>
+            <form>
+                <fieldset>
+                    <label for="fname">
+                        Name
+                    </label>
+                    <input type="text" name="fname" placeholder="Write your name">
+                    <label for="femail">
+                        E-Mail
+                    </label>
+                    <input type="text" name="femail" placeholder="Write your email">
+                    <label for="fcountry">
+                        Select your country area
+                    </label>
+                    <select id="fcountry" name="fcountry">
+                        <option value="c1">
+                            Country 1
+                        </option>
+                        <option value="c2">
+                            Country 2
+                        </option>
+                        <option value="c3">
+                            Country 3
+                        </option>
+                        <option value="c4">
+                            Country 4
+                        </option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <textarea placeholder="Write your message here" name="message" id="message" cols="30"
+                        rows="10"></textarea>
+                    <button type="submit">
+                        Submit
+                    </button>
+                </fieldset>
+
+
+            </form>
+        </div>
+
     </main>
-    <div>
-        <h3>
-            Get system information
-        </h3>
-        <form>
-            <label for="fname">
-                Name
-            </label>
-            <input type="text" name="fname" placeholder="Write your name">
-            <label for="femail">
-                E-Mail
-            </label>
-            <input type="text" name="femail" placeholder="Write your email">
-            <label for="fcountry">
-                Select your country area
-            </label>
-            <select id="fcountry" name="fcountry">
-                <option value="c1">
-                    Country 1
-                </option>
-                <option value="c2">
-                    Country 2
-                </option>
-                <option value="c3">
-                    Country 3
-                </option>
-                <option value="c4">
-                    Country 4
-                </option>
-            </select>
-            <textarea placeholder="Write your message here" name="message" id="message" cols="30" rows="10"></textarea>
-            <button type="submit">
-                Submit
-            </button>
-            <button type="reset">
-                Clear
-            </button>
-        </form>
-    </div>
-    <div>
+    <div class="columnsmenu">
         <div>
             <h3>
                 Products
@@ -336,16 +350,18 @@
         </div>
     </div>
     <footer>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEP6_ZqUdItJUMNAiUfH-ytlPuseYnOrLhNp8lPl6ViB_O1-Tz4n3jwbPlVkirF3Y3QU&usqp=CAU"
-            alt="Linkedin icon" width="20px">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS73k3dFT_EfG0rqnbaKS2PxNOc1YjJjVWnY6-IaeAW9z2ITGbY1RQXqG9WhJAtgSgdsg0&usqp=CAU"
-            alt="Twitter icon" width="20px">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBZKT7Yleym993SA5GMZxdYhwHwV09j8f9yUP1NZKIBduaz9Mogz77BYsLnht0-0xHnI0&usqp=CAU"
-            alt="Facebook icon" width="20px">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTULUhZjZ8Y88PCtERA09YDloaWTCAEkS9-Q&usqp=CAU"
-            alt="Instagram icon" width="20px">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTFSIO_dsJJiOX3Sntwxpw6lUIJKI0ueBlRpcQ3q57xVOw4-bCAQ2eX0v_5v2sf5CIiNA&usqp=CAU"
-            alt="Github Icon" width="20px">
+        <div id="footerimg"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEP6_ZqUdItJUMNAiUfH-ytlPuseYnOrLhNp8lPl6ViB_O1-Tz4n3jwbPlVkirF3Y3QU&usqp=CAU"
+                alt="Linkedin icon" width="20px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS73k3dFT_EfG0rqnbaKS2PxNOc1YjJjVWnY6-IaeAW9z2ITGbY1RQXqG9WhJAtgSgdsg0&usqp=CAU"
+                alt="Twitter icon" width="20px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBZKT7Yleym993SA5GMZxdYhwHwV09j8f9yUP1NZKIBduaz9Mogz77BYsLnht0-0xHnI0&usqp=CAU"
+                alt="Facebook icon" width="20px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTULUhZjZ8Y88PCtERA09YDloaWTCAEkS9-Q&usqp=CAU"
+                alt="Instagram icon" width="20px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTFSIO_dsJJiOX3Sntwxpw6lUIJKI0ueBlRpcQ3q57xVOw4-bCAQ2eX0v_5v2sf5CIiNA&usqp=CAU"
+                alt="Github Icon" width="20px">
+        </div>
         <p>
             Montevideo, Uruguay
         </p>
