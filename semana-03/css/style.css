@@ -103,6 +103,7 @@ aside label {
 }
 
 nav ul li a {
+    display: block;
     width: 64%;
     margin-bottom: 5px;
     padding: 8px 0 8px 0;
