@@ -1,27 +1,62 @@
-/*HEADER*/
+/*SELECTORES DE ELEMENTO*/
 
 body {
     font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
 }
 
 header {
-    background: #50A780;
     height: 50px;
+    background: #50A780;
 }
 
-button#hamburgericon {
-    background: transparent;
+aside {
+    display: inline-block;
+    width: 20%;
+    height: 1220px;
+    padding: 10px;
+    vertical-align: top;
+    background: linear-gradient(180deg, rgb(80 167 128) 0%, rgb(79 167 128) 60%, rgb(255 255 255) 100%);
+}
+
+main {
+    display: inline-block;
+    width: 68%;
+    padding: 10px 5%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 29px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    line-height: 29px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/*Orden de aparicion*/
+
+/*HEADER*/
+button#hamburger-icon {
     border: none;
+    background: transparent;
+
 }
 
-div#headerhref {
+div#header-href {
     display: inline-block;
     margin: 0 100px;
 }
 
-div#headerhref a {
+div#header-href a {
     color: black;
     text-decoration: none;
 }
@@ -47,40 +82,35 @@ header img#lupa {
 button.login {
     width: 190px;
     height: 35px;
+    margin-left: 20px;
     border-radius: 200px;
     border: none;
-    margin-left: 20px;
+
 }
 
-/*ASIDE*/
-aside {
-    width: 20%;
-    padding: 10px;
-    vertical-align: top;
-    display: inline-block;
-    height: 1220px;
-    background: linear-gradient(180deg, rgb(80 167 128) 0%, rgb(79 167 128) 60%, rgb(255 255 255) 100%);
-}
-
+/*ASIDE (Left menu)*/
 aside label {
-    width: 60%;
     display: block;
+    width: 60%;
+    padding-bottom: 5px;
+    margin-left: 15px;
+    border-bottom: 1px solid red;
     font-size: 20px;
     font-weight: bold;
     font-family: monospace;
-    padding-bottom: 5px;
-    border-bottom: 1px solid red;
+
+
 }
 
 nav ul li a {
-    color: #000000;
-    text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    width: 64%;
     margin-bottom: 5px;
-    display: inherit;
+    padding: 8px 0 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+    color: rgb(0, 0, 0);
+    text-shadow: rgb(0 0 0 / 25%) 0px 4px 4px;
     text-decoration: none;
-    border-bottom: 1px solid #ffffff85;
-    padding: 8px;
-    width: 90%;
+
 }
 
 aside p {
@@ -97,74 +127,65 @@ aside ul {
     padding-top: 10px;
 }
 
+aside nav+div {
+    margin-top: 100px;
+}
+
 aside button {
-    background: #49A37B;
+    display: block;
+    margin: 100px auto;
+    padding: 10px 24px;
     border: 1px solid #000000;
     border-radius: 5px;
-    margin: 100px auto;
-    display: block;
-    padding: 10px 24px;
+    background: #49A37B;
     color: white;
 }
 
 /*MAIN*/
-main {
-    display: inline-block;
-    width: 68%;
-    padding: 10px 5%;
-}
 
-a {
-    color: black;
-    text-decoration: none;
-}
-
-.pagestitle {
+.pages-title {
     display: block;
     width: 300px;
     height: 90px;
 }
 
-.pagestitle img {
+.pages-title img {
     display: inline-block;
 }
 
-.pagestitle h2 {
+.pages-title h2 {
     margin-left: 69px;
     margin-top: -30px;
 }
 
-.pagestitle h1,
+.pages-title h1,
 h2 {
     display: inline-block;
     vertical-align: top;
     text-transform: uppercase;
 }
 
-h1 {
-    font-size: 29px;
-}
-
-#description {
+.description {
     margin-top: 15px;
 }
 
-#description p {
+.description p {
     display: inline-block;
     width: 45%;
     padding: 10px;
-    text-align: justify;
     vertical-align: top;
+    text-align: justify;
 }
 
-#description img {
+.description img {
     display: inline-block;
     height: 250px;
 }
 
+/*INFOS GRID*/
 section#infos-grid div {
     display: inline-block;
-    width: 15%;
+    width: 17%;
     margin: 0px 10px 50px 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background: #EFE7E7;
@@ -172,23 +193,26 @@ section#infos-grid div {
 
 #infos-grid img,
 p {
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
     text-align: center;
 }
 
 #infos-grid img {
-    width: 135px;
+    width: 99%;
     height: 100px;
 }
 
 section#infos-grid {
-    margin-top: 50px;
+    display: block;
+    margin: 50px auto;
+    width: 90%;
 }
 
+/*MOTIVES*/
 #motives div {
-    width: 48%;
     display: inline-block;
+    width: 48%;
     margin-left: 10px;
 }
 
@@ -196,133 +220,152 @@ section#infos-grid {
     content: "- "
 }
 
-h3 {
-    margin-bottom: 10px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-}
-
-div#aboutus {
+/*ABOUT US*/
+div#about-us {
+    padding: 15px;
     margin-top: 50px;
     background: #E9E9E9;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 20px;
-    padding: 15px;
+
 }
 
-div#aboutus img {
+div#about-us img {
+    display: inline-block;
     width: 185px;
     height: 90px;
-    display: inline-block;
+
 }
 
-#aboutus p {
+#about-us p {
     display: inline-block;
     width: 75%;
     text-align: justify;
 }
 
-#aboutus div {
+#about-us div {
     margin-top: 15px;
 }
 
 /*CONTACT FORM*/
-.contactform {
+.contact-form {
     margin-top: 70px;
 }
 
-.contactform form {
+.contact-form form {
     padding: 20px;
     border-top: 1px solid black;
 }
 
-.contactform form label {
+.contact-form form label {
+    display: block;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 26px;
-    display: block;
+
 }
 
-.contactform form input[type="text"] {
-    padding: 10px 12px;
+.contact-form form input[type="text"] {
     display: block;
+    padding: 10px 12px;
+    width: 82%;
     border: 1px solid #767676;
     border-radius: 5px;
-    width: 82%;
 }
 
-.contactform form>fieldset {
-    width: 35%;
+.contact-form form>fieldset {
     display: inline-block;
+    width: 35%;
+
     vertical-align: top;
 }
 
-.contactform form>fieldset+fieldset {
-    width: 64%;
+.contact-form form>fieldset+fieldset {
     display: inline-block;
+    width: 64%;
+
 }
 
-.contactform form select#fcountry {
+.contact-form form select#fcountry {
+    display: block;
+    width: 90%;
+    padding: 7px 12px;
     box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 4px;
-    width: 90%;
-    padding: 7px 12px;
-    display: block;
     border: 1px solid #767676;
     color: gray;
 }
 
-.contactform form textarea#message {
-    padding: 10px 12px;
+.contact-form form textarea#message {
     display: block;
+    width: 100%;
+    padding: 10px 12px;
     border: 1px solid #767676;
     font-weight: 700;
     border-radius: 5px;
-    width: 100%;
     font-family: roboto;
 }
 
-.contactform button {
-    background: #BEE2AE;
-    border-radius: 5px;
-    margin: 0 auto;
+.contact-form button {
     display: block;
     width: 40%;
-    margin-top: 10px;
-    border: none;
     height: 30px;
+    margin: 10px auto;
+    background: #BEE2AE;
+    border-radius: 5px;
+    border: none;
 }
 
-.columnsmenu div {
-    display: inline-block;
-    width: 30%;
-    margin-left: 3%;
-    border-right: 1px solid black;
-}
-
-.columnsmenu {
-    background: #50A780;
+.column-menu {
     padding: 20px 0;
+    background: #50A780;
+
 }
 
-.columnsmenu div ul {
-    margin: 0 auto;
+.column-menu section {
     display: block;
-    width: 100px;
+    width: 60%;
+    margin: 0 auto;
+
 }
 
-.columnsmenu h3 {
+.column-menu div {
+    display: inline-block;
+    width: 32%;
+}
+
+.column-menu section div+div {
+    border-left: 1px solid black;
+}
+
+.column-menu h3 {
     text-align: center;
 }
 
-div#footerimg {
+.column-menu div ul {
     display: block;
     margin: 0 auto;
+    width: 100px;
+}
+
+.column-menu section li {
+    margin: 15px 0 15px 0;
+}
+
+.column-menu a {
+    color: white;
+}
+
+/*FOOTER*/
+div#footer-img {
+    display: block;
     width: 116px;
+    margin: 10px auto 20px;
+}
+
+footer div+p {
+    color: #49A37B;
 }
