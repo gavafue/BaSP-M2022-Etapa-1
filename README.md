@@ -19,3 +19,7 @@ In this repository is working: Gabriel Vazquez and I'm in the second week, due t
 
 ### Third week
 We began to work in CSS. Due to in this repository you'd watch a folder called "semana-02" where you could see the progress.
+
+### Fourth week
+In this week we began with Flexbox model and First Mobile Design in order to get responsive design.
+- [Github Pages Link](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-04/index.html)
