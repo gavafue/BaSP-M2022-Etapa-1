@@ -109,3 +109,6 @@ div#about-us {
     display: flex;
 }
 
+.about-section-2 {
+    flex-direction: row-reverse;
+}
