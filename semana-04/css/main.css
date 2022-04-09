@@ -20,8 +20,11 @@ aside {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex: 7;
+}
+
+.container {
+    display: flex;
 }
 
 .pages-title {
@@ -55,6 +58,7 @@ h2 {
 .description {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .description img {
@@ -71,7 +75,9 @@ section#infos-grid {
     justify-content: space-around;
     align-items: center;
     align-content: center;
+    margin-top: 50px;
     text-align: center;
+
 }
 
 section#infos-grid div {
@@ -93,6 +99,7 @@ div#motives {
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-top: 50px;
 }
 
 div#about-us img {
@@ -153,6 +160,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 footer div+p {
@@ -163,4 +171,84 @@ footer div+p {
 
 .column-menu section div+div {
     border-left: 1px solid;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    main {
+        align-items: flex-start;
+    }
+
+    #header-href {
+        display: flex;
+        flex: 1;
+        font-size: 13px;
+    }
+
+    header input[type="text"] {
+        display: inline;
+        flex: 3;
+    }
+
+    header img#lupa {
+        order: 0;
+        margin-left: -25px;
+        height: 20px;
+    }
+
+    button.login {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .pages-title {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .description {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .description div:first-child {
+        flex: 6;
+    }
+
+    .description div:nth-child(2) {
+        flex: 4;
+    }
+
+    .section-2 {
+        padding: 10px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-content: space-around;
+        align-items: center;
+    }
+
+    .section-2>section {
+        flex: 1;
+    }
+
+    #motives li:before {
+        content: "- "
+    }
+
+}
+
+
+@media screen and (min-width: 1024px) {
+    aside {
+        display: flex;
+        flex-direction: column;
+        flex: 3;
+        background: linear-gradient(180deg, rgb(80 167 128) 0%, rgb(79 167 128) 60%, rgb(255 255 255) 100%);
+    }
 }
