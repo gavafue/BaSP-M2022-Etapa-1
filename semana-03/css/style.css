@@ -116,11 +116,7 @@ nav ul li a {
 
 aside p {
     padding: 10px 15px 0px 15px;
-    padding-top: 10px;
-    padding-right: 15px;
-    padding-bottom: 0px;
-    padding-left: 15px;
-    text-align: justify;
+       text-align: justify;
 }
 
 aside ul {
