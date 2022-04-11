@@ -2,7 +2,6 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto Regular';
-
 }
 
 h3 {
@@ -72,6 +71,11 @@ main {
     flex-direction: column;
     flex: 7;
     justify-content: center;
+    padding: 10px;
+}
+
+main div {
+    margin-top: 20px;
 }
 
 .container {
@@ -181,8 +185,17 @@ div#about-us {
     display: flex;
 }
 
+.about-img-2, .about-img-1 {
+    flex: 4;
+    max-height: 140px;
+}
+
 .about-section-2 {
     flex-direction: row-reverse;
+}
+
+.about-p-1, .about-p-2 {
+    flex: 6;
 }
 
 .contact-form {
