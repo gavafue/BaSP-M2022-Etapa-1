@@ -1,6 +1,4 @@
-* {
-    font-family: roboto;
-}
+@import url('http://fonts.cdnfonts.com/css/roboto');
 
 body {
     display: flex;
