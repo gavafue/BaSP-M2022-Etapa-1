@@ -1,7 +1,10 @@
+* {
+    font-family: roboto;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    font-family: roboto;
 }
 
 h3 {
@@ -245,12 +248,12 @@ footer div+p {
         background: linear-gradient(180deg, rgb(80 167 128) 0%, rgb(79 167 128) 60%, rgb(255 255 255) 100%);
     }
 
-    .right{
-        flex:11;
+    .right {
+        flex: 11;
     }
 
-    .contact-form{
-    display: flex;
+    .contact-form {
+        display: flex;
     }
 
     aside label {
@@ -262,10 +265,10 @@ footer div+p {
         font-size: 20px;
         font-weight: bold;
         font-family: monospace;
-    
-    
+
+
     }
-    
+
     nav ul li a {
         display: block;
         width: 64%;
@@ -275,23 +278,23 @@ footer div+p {
         color: rgb(0, 0, 0);
         text-shadow: rgb(0 0 0 / 25%) 0px 4px 4px;
         text-decoration: none;
-    
+
     }
-    
+
     aside p {
         padding: 10px 15px 0px 15px;
         text-align: justify;
     }
-    
+
     aside ul {
         padding-left: 15px;
         padding-top: 10px;
     }
-    
+
     aside nav+div {
         margin-top: 100px;
     }
-    
+
     aside button {
         display: block;
         margin: 100px auto;
@@ -302,7 +305,7 @@ footer div+p {
         color: white;
     }
 
-    .section-2{
+    .section-2 {
         flex-direction: column;
     }
 }
