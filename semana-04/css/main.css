@@ -29,6 +29,9 @@ aside label {
     font-weight: bold;
 }
 
+aside ul{
+    padding: 5px;
+}
 
 nav ul li a {
     display: block;
@@ -43,7 +46,6 @@ nav ul li a {
 
 aside p {
     padding: 10px 15px 0px 15px;
-    text-align: justify;
 }
 
 aside ul {
@@ -64,7 +66,6 @@ aside button {
     background: #49A37B;
     color: white;
 }
-
 
 main {
     display: flex;
@@ -201,10 +202,6 @@ div#about-us {
     display: none;
 }
 
-div#footer-img img {
-    width: 20px;
-}
-
 .column-menu {
     background: #50a780;
     padding: 20px;
@@ -267,6 +264,10 @@ div#footer-img img {
     background: #BEE2AE;
     border-radius: 5px;
     border: none;
+}
+
+div#footer-img img {
+    width: 20px;
 }
 
 @media screen and (min-width: 768px) {
