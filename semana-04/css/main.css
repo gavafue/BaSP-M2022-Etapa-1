@@ -29,7 +29,7 @@ aside label {
     font-weight: bold;
 }
 
-aside ul{
+aside ul {
     padding: 5px;
 }
 
@@ -85,7 +85,6 @@ main div {
 
 .pages-title {
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
@@ -122,7 +121,7 @@ h2 {
 }
 
 .description p {
-    text-align: center;
+    padding: 20px;
 }
 
 section#infos-grid {
@@ -185,7 +184,8 @@ div#about-us {
     display: flex;
 }
 
-.about-img-2, .about-img-1 {
+.about-img-2,
+.about-img-1 {
     flex: 4;
     max-height: 140px;
 }
@@ -194,7 +194,8 @@ div#about-us {
     flex-direction: row-reverse;
 }
 
-.about-p-1, .about-p-2 {
+.about-p-1,
+.about-p-2 {
     flex: 6;
 }
 
@@ -273,14 +274,16 @@ div#footer-img img {
 @media screen and (min-width: 768px) {
     .pages-title {
         align-self: flex-start;
-        align-items: center;
         margin-left: 10px;
         margin-top: 10px;
     }
 
     .description {
         flex-direction: row;
+        align-self: center;
+        align-items: center;
         padding: 10px;
+        width: 75%;
     }
 
     .description div:first-child {

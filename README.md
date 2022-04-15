@@ -22,4 +22,8 @@ We began to work in CSS. Due to in this repository you'd watch a folder called "
 
 ### Fourth week
 In this week we began with Flexbox model and First Mobile Design in order to get responsive design.
-- [Github Pages Link](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-04/index.html)
+- [Github Pages Link - Semana 4](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-04/index.html)
+  
+### Fifth week
+We started with javascript so, in that week are placed some exercises about arrays, objects, variables, operators, control structures and functions.
+- [Direct Link](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-05/index.html)
