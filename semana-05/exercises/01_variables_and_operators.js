@@ -5,8 +5,8 @@
 
 var num1 = 3;
 var num2 = 7;
-var suma = num1 + num2;
-console.log('Exercise 1a:', suma)
+var add = num1 + num2;
+console.log('Exercise 1a:', add)
 
 // 1b) Crear dos variables de tipo String y concatenarlas guardando el resultado en una 3er variable.
 
@@ -20,5 +20,5 @@ console.log('Exercise 1b:',string);
 
 var string3 = 'como estas';
 var string4 = 'bien y vos';
-var character_length = string3.length + string4.length;
-console.log('Exercise 1c:',character_length);
+var characterLength = string3.length + string4.length;
+console.log('Exercise 1c:', characterLength);
