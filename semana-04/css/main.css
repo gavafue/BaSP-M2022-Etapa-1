@@ -324,6 +324,7 @@ div#footer-img img {
         display: flex;
         flex-direction: column;
         margin: 20px;
+        width:75%;
     }
 
     .contact-form form {
