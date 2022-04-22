@@ -67,15 +67,39 @@ form {
     color: black;
 }
 
+form .info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login fieldset {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+}
+
 @media screen and (min-width:768px) {
-    .login{
+    .login {
         width: 60%;
     }
 }
 
 
 @media screen and (min-width:1024px) {
-    .login{
-        width: 45%;
+    .login {
+        width: 75%;
+    }
+
+    .login fieldset {
+        width: 40%;
+    }
+
+    form .info {
+        flex-direction: row;
     }
 }
