@@ -32,12 +32,13 @@ header img#lupa {
     height: 40px;
 }
 
-button.login {
+.button-login {
     height: 35px;
     margin: 5px;
     border-radius: 200px;
     border: none;
     flex: 2;
+    cursor:pointer;
 }
 
 #header-href {
@@ -68,7 +69,7 @@ div#header-href a {
         height: 20px;
     }
 
-    button.login {
+    .button-login {
         flex: 1;
         margin-left: 20px;
     }
