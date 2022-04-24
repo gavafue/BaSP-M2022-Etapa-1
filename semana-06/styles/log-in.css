@@ -39,6 +39,21 @@ form {
     border-radius: 5px;
 }
 
+.feedback {
+    display: none;
+}
+
+.feedback-invalid {
+    display: block;
+    color: red;
+    font-size: 14px;
+}
+
+.input-invalid {
+    background: rgba(255, 0, 0, 0.19);
+    border: 1px solid #ED2626;
+}
+
 .login button {
     width: 40%;
     height: 30px;

@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/fonts/style.css">
     <link rel="stylesheet" href="../styles/footer.css">
-    <link rel="stylesheet" href="../styles/login.css">
-    <script src="../javascript/login.js"></script>
+    <link rel="stylesheet" href="../styles/log-in.css">
+    <script src="../javascript/log-in.js"></script>
 </head>
 
 <body>
@@ -58,8 +58,10 @@
             <form>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Write your e-mail">
+                <div id="email-feedback" class="feedback">The email has not a format valid.</div>
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Write your password">
+                <div id="password-feedback" class="feedback">The password has to contain numbers and letters.</div>
                 <div class="login-bottom">
                     <div>
                         <label for="remember" class="remember">
