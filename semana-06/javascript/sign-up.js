@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const signUpName = document.getElementById('register-name');
     const signUpSurname = document.getElementById('register-surname');
     signUpName.addEventListener('blur', function () {
-        if (!(validationText(signUpName.value) && validationStringLength(signUpName.value, 3))) {
+        if (!validationText(signUpName.value) || !validationStringLength(signUpName.value, 3) ||
+            validationNumber(signUpName.value)) {
             const nameFeedback = document.getElementById('name-feedback');
             nameFeedback.classList = 'feedback-invalid';
             signUpName.classList = 'input-invalid';
@@ -76,7 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     signUpSurname.addEventListener('blur', function () {
-        if (!(validationText(signUpSurname.value) && validationStringLength(signUpSurname.value, 3))) {
+        if (!validationText(signUpSurname.value) || !validationStringLength(signUpSurname.value, 3) ||
+            validationNumber(signUpSurname.value)) {
             const nameFeedback = document.getElementById('surname-feedback');
             nameFeedback.classList = 'feedback-invalid';
             signUpSurname.classList = 'input-invalid';
@@ -105,13 +107,13 @@ document.addEventListener('DOMContentLoaded', function () {
     //validation from password
     const passwordInput = document.getElementById('register-password');
     passwordInput.addEventListener('blur', function () {
-        if (!validationText(passwordInput.value) || !validationNumber(passwordInput.value) 
-        || !validationStringLength(passwordInput.value, 8)) {
-            
-                const passwordFeedback = document.getElementById('password-feedback');
-                passwordFeedback.classList = 'feedback-invalid';
-                passwordInput.classList = 'input-invalid';
-            
+        if (!validationText(passwordInput.value) || !validationNumber(passwordInput.value) ||
+            !validationStringLength(passwordInput.value, 8)) {
+
+            const passwordFeedback = document.getElementById('password-feedback');
+            passwordFeedback.classList = 'feedback-invalid';
+            passwordInput.classList = 'input-invalid';
+
         }
     })
     passwordInput.addEventListener('focus', function () {
