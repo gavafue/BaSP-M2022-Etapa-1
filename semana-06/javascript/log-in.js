@@ -20,16 +20,25 @@ function validationEmail(email) {
 
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
     //Function thas redirect the buttons with class "home" to the landing.
     var passwordInput = document.getElementById('password');
     var emailInput = document.getElementById('email');
-    var homeButton = document.getElementsByClassName('home');
 
+    var homeButton = document.getElementsByClassName('home');
     for (var i = 0; i < homeButton.length; i++) {
         const boton = homeButton[i];
         boton.addEventListener('click', function () {
             window.location = 'index.html';
+        })
+    }
+
+    var signUp = document.getElementsByClassName('sign-up');
+    for (var i = 0; i < signUp.length; i++) {
+        const boton = signUp[i];
+        boton.addEventListener('click', function () {
+            window.location = 'sign-up.html'
         })
     }
 

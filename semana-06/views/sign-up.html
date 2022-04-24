@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../styles/fonts/style.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/sign-up.css">
+    <script src="../javascript/sign-up.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,9 @@
         <button class="button-login home" id="home">
             Home
         </button>
-
+        <button class="button-login log-in">
+            Login
+        </button>
     </header>
     <div class="container">
         <div class="pages-title">
@@ -60,35 +63,61 @@
                     <fieldset>
                         <label for="register-name">Name</label>
                         <input type="text" name="register-name" id="register-name" placeholder="Write your name">
+                        <div id="name-feedback" class="feedback">The name must only contain letters and at least three
+                            of them.</div>
                         <label for="register-surname">Surname</label>
                         <input type="text" name="register-surname" id="register-surname"
                             placeholder="Write your surname">
-                       
+                        <div id="surname-feedback" class="feedback">The surname must only contain letters and at least
+                            three of them.
+                        </div>
                         <label for="register-email">Email</label>
                         <input type="email" name="register-email" id="register-email" placeholder="Write your email">
+                        <div id="email-feedback" class="feedback">The email has not a format valid.</div>
                         <label for="register-password">Password</label>
                         <input type="password" name="register-password" id="register-password"
                             placeholder="Write your password">
+                        <div id="password-feedback" class="feedback">The password has to contain numbers and letters.
+                        </div>
                         <label for="register-repeat-password">Repeat your password</label>
                         <input type="password" name="register-repeat-password" id="register-repeat-password"
                             placeholder="Repeat your password">
+                        <div id="repeat-password-feedback" class="feedback">The password has to contain numbers and
+                            letters.
+                        </div>
                     </fieldset>
                     <fieldset>
                         <label for="register-dni">DNI</label>
                         <input type="number" name="register-dni" id="register-dni" placeholder="Write your DNI">
+                        <div id="dni-feedback" class="feedback">The DNI must to contain numbers and at least seven of
+                            them.</div>
                         <label for="register-birthday">Birthday</label>
                         <input type="date" name="register-birthday" id="register-birthday"
                             placeholder="Writhe you birthday">
+                        <div id="birthday-feedback" class="feedback">The birthday has to respect the format dd/mm/yyyy.
+                        </div>
                         <label for="register-telephone">Telephone number</label>
                         <input type="number" name="register-telephone" id="register-telephone"
                             placeholder="Write your telephone">
+                        <div id="telephone-feedback" class="feedback">The telephone must to contain numbers and at least
+                            ten of them.
+                        </div>
                         <label for="register-adress">Adress</label>
                         <input type="text" name="register-adress" id="register-adress" placeholder="Write your adress">
-                        <label for="register-district">District</label>
-                        <input type="text" name="register-district" id="register-district"
-                            placeholder="Write your district">
+                        <div id="adress-feedback" class="feedback">The adress must to contain numbers, letters and at
+                            least
+                            three characters.
+                        </div>
+                        <label for="register-city">City</label>
+                        <input type="text" name="register-city" id="register-city" placeholder="Write your City">
+                        <div id="city-feedback" class="feedback">The city must to contain numbers and at least
+                            ten of them.
+                        </div>
                         <label for="register-zip">Postal Code</label>
                         <input type="number" name="register-zip" id="register-zip" placeholder="Write your Postal Code">
+                        <div id="city-feedback" class="feedback">The postal code must to contain only numbers and
+                            between four and five characters.
+                        </div>
                     </fieldset>
 
                 </div>
