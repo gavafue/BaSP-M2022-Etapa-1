@@ -34,12 +34,27 @@ function validationStringLength(string, number) {
 
 function validationTextNumberAndSpaces(string) {
     var validation = false;
-    if (validationTextNumber(string)) {
+    var firstNumber;
+    if (validationNumber(string) && validationText(string)) {
         if (string.indexOf(' ') != -1) {
-            validation = true;
+            firstNumber = string.indexOf(' ');
+            if (!isNaN(string[firstNumber + 1])) {
+                validation = true;
+            }
         }
     }
     return validation;
+}
+
+function lettersCounter(string) {
+    var letters = 0;
+    for (var i = 0; i < string.length; i++) {
+        const element = string[i];
+        if (isNaN(element)) {
+            letters++;
+        }
+    }
+    return letters;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -137,4 +152,84 @@ document.addEventListener('DOMContentLoaded', function () {
         passwordFeedback.classList = 'feedback';
         repeatPasswordInput.classList = '';
     })
+    // validation from DNI
+    const dniInput = document.getElementById('register-dni');
+    dniInput.addEventListener('blur', function () {
+        if (validationText(dniInput.value) || !validationNumber(dniInput.value) ||
+            !validationStringLength(dniInput.value, 8)) {
+            const dniFeedback = document.getElementById('dni-feedback');
+            dniFeedback.classList = 'feedback-invalid';
+            dniInput.classList = 'input-invalid';
+        }
+    })
+    dniInput.addEventListener('focus', function () {
+        const dniFeedback = document.getElementById('dni-feedback');
+        dniFeedback.classList = 'feedback';
+        dniInput.classList = '';
+    })
+    //validation from brithdate
+    //Veremos que se hace acá
+
+    //validation from telephone
+    const telephoneNumberInput = document.getElementById('register-telephone');
+    telephoneNumberInput.addEventListener('blur', function () {
+        if (validationText(telephoneNumberInput.value) || !validationNumber(telephoneNumberInput.value) ||
+            telephoneNumberInput.value.length != 10) {
+            const dniFeedback = document.getElementById('telephone-feedback');
+            dniFeedback.classList = 'feedback-invalid';
+            telephoneNumberInput.classList = 'input-invalid';
+        }
+    })
+    telephoneNumberInput.addEventListener('focus', function () {
+        const dniFeedback = document.getElementById('telephone-feedback');
+        dniFeedback.classList = 'feedback';
+        telephoneNumberInput.classList = '';
+    })
+    // validation from address
+    const adressInput = document.getElementById('register-address');
+    adressInput.addEventListener('blur', function () {
+        if (!validationTextNumberAndSpaces(adressInput.value) || !validationStringLength(adressInput.value, 6)) {
+            const addressFeedback = document.getElementById('address-feedback');
+            addressFeedback.classList = 'feedback-invalid';
+            adressInput.classList = 'input-invalid';
+        }
+    })
+    adressInput.addEventListener('focus', function () {
+        const addressFeedback = document.getElementById('address-feedback');
+        addressFeedback.classList = 'feedback';
+        adressInput.classList = '';
+    })
+    //validation from city
+    const cityInput = document.getElementById('register-city');
+    cityInput.addEventListener('blur', function () {
+        if (!validationText(cityInput.value) || !validationNumber(cityInput.value) ||
+            lettersCounter(cityInput.value) < 3) {
+            const cityFeedback = document.getElementById('city-feedback');
+            cityFeedback.classList = 'feedback-invalid';
+            cityInput.classList = 'input-invalid';
+        }
+    })
+    cityInput.addEventListener('focus', function () {
+        const cityFeedback = document.getElementById('city-feedback');
+        cityFeedback.classList = 'feedback';
+        cityInput.classList = '';
+    })
+
+    //validation from ZIP
+    const zipInput = document.getElementById('register-zip');
+    zipInput.addEventListener('blur', function () {
+        if (!validationNumber(zipInput.value) || validationText(zipInput.value) ||
+            zipInput.value.length < 4 || zipInput.value.length > 5) {
+            const zipFeedback = document.getElementById('zip-feedback');
+            zipFeedback.classList = 'feedback-invalid';
+            zipInput.classList = 'input-invalid';
+        }
+    })
+    zipInput.addEventListener('focus', function () {
+        const zipFeedback = document.getElementById('zip-feedback');
+        zipFeedback.classList = 'feedback';
+        zipInput.classList = '';
+    })
+
+
 })
