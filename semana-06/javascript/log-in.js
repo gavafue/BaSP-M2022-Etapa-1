@@ -1,3 +1,7 @@
+var validationMessageLogin = "";
+var emailMessageLogin = 'Email: ' + "This input is empty \n";
+var passwordMessageLogin = 'Password: ' + "This input is empty \n";
+
 function validationTextNumber(string) {
     var hasNumber = false;
     var hasLetter = false;
@@ -12,6 +16,7 @@ function validationTextNumber(string) {
     }
     return hasLetter && hasNumber;
 }
+
 function validationEmail(email) {
     var emailConditions = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
     return emailConditions.test(email);
@@ -34,25 +39,15 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location = 'sign-up.html'
         })
     }
-    passwordInput.addEventListener('blur', function () {
-        var passwordValue = document.getElementById('password').value;
-        if (validationTextNumber(passwordValue) == false) {
-            const passwordFeedback = document.getElementById('password-feedback');
-            passwordFeedback.classList = 'feedback-invalid';
-            passwordInput.classList = 'input-invalid';
-        }
-    })
-    passwordInput.addEventListener('focus', function () {
-        const passwordFeedback = document.getElementById('password-feedback');
-        passwordFeedback.classList = 'feedback';
-        passwordInput.classList = '';
-    })
-    emailInput.addEventListener('blur',function(){
+    emailInput.addEventListener('blur', function () {
         console.log(validationEmail(emailInput.value));
-        if (validationEmail(emailInput.value) == false) {
+        if (!validationEmail(emailInput.value)) {
             const emailFeedback = document.getElementById('email-feedback');
             emailFeedback.classList = 'feedback-invalid';
             emailInput.classList = 'input-invalid';
+            emailMessageLogin = 'Email: ' + emailFeedback.innerText + '\n'
+        } else {
+            emailMessageLogin = 'Email: ' + emailInput.value + '\n';
         }
     })
     emailInput.addEventListener('focus', function () {
@@ -60,4 +55,27 @@ document.addEventListener('DOMContentLoaded', function () {
         emailFeedback.classList = 'feedback';
         emailInput.classList = '';
     })
+    passwordInput.addEventListener('blur', function () {
+        var passwordValue = document.getElementById('password').value;
+        if (!validationTextNumber(passwordValue)) {
+            const passwordFeedback = document.getElementById('password-feedback');
+            passwordFeedback.classList = 'feedback-invalid';
+            passwordInput.classList = 'input-invalid';
+            passwordMessageLogin = 'Password: ' + passwordFeedback.innerText + '\n'
+        } else {
+            passwordMessageLogin = 'Password: ' + passwordValue.value + '\n';
+        }
+    })
+    passwordInput.addEventListener('focus', function () {
+        const passwordFeedback = document.getElementById('password-feedback');
+        passwordFeedback.classList = 'feedback';
+        passwordInput.classList = '';
+    })
+
+    var submitLogin = document.getElementById('login-submit');
+    submitLogin.addEventListener('click', function () {
+        validationsMessageLogin = emailMessageLogin + passwordMessageLogin;
+        alert(validationsMessageLogin);
+    })
+
 })

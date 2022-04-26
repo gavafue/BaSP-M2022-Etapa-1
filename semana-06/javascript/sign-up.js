@@ -1,18 +1,16 @@
 //Objeto que almacena todos los errores
-var allValidations = {
-    name: 'Empty input',
-    surname: 'Empty input',
-    password: 'Empty input',
-    email: 'Empty input',
-    repeatPassword: 'Empty input',
-    dni: 'Empty input',
-    birthday: 'Empty input',
-    telephone: 'Empty input',
-    address: 'Empty input',
-    city: 'Empty input',
-    zip: 'Empty input'
-};
-
+var validationsMessageLogin = "";
+var nameMessage = 'Name: ' + "This input is empty \n";
+var surnameMessage = 'Surname: ' + "This input is empty \n";
+var emailMessage = 'Email: ' + "This input is empty \n";
+var passwordMessage = 'Password: ' + "This input is empty \n";
+var repeatPasswordMessage = 'Repeat Password: ' + "This input is empty \n";
+var dniMessage = 'DNI: ' + "This input is empty \n";
+var birthdayMessage = 'Birthday: ' + "This input is empty \n";
+var telephoneMessage = 'Telephone: ' + "This input is empty \n";
+var addressMessage = 'Address: ' + "This input is empty \n";
+var cityMessage = 'City: ' + "This input is empty \n";
+var zipMessage = 'ZIP: ' + "This input is empty \n";
 
 function validationText(string) {
     var hasLetter = false;
@@ -20,9 +18,6 @@ function validationText(string) {
         const element = string[i];
         if (isNaN(element)) {
             hasLetter = true;
-        }
-        if (!isNaN(element)) {
-            hasNumber = true;
         }
     }
     return hasLetter;
@@ -74,29 +69,11 @@ function lettersCounter(string) {
 }
 
 function validationDate(string) {
-    var validDate = false;
-    const firstSlash = string.indexOf('-');
-    const secondSlash = string.indexOf('-', firstSlash + 1)
-    const existThirdSlash = string.indexOf('-', secondSlash + 1) != -1;
-    console.log('date', string);
-    const year = string.substring(0, firstSlash);
-    console.log('year', year);
-    const month = string.substring(firstSlash + 1, secondSlash);
-    console.log('month', month);
-    const day = string.substring(secondSlash + 1);
-    console.log('day', day);
-
-    if (day.length == 2 && month.length == 2 && year.length == 4 && !existThirdSlash) {
-        if (day < 32 && day > 0) {
-            if (month > 0 && month < 13) {
-                if (year > 1800 && year < 2023) {
-                    validDate = true;
-                }
-            }
-        }
-    }
-    return validDate;
+    var todayDate = new Date();
+    var inputDate = new Date(string);
+    return todayDate > inputDate;
 }
+
 document.addEventListener('DOMContentLoaded', function () {
 
     //Home and login Buttons
@@ -123,9 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const nameFeedback = document.getElementById('name-feedback');
             nameFeedback.classList = 'feedback-invalid';
             nameInput.classList = 'input-invalid';
-            allValidations.name = 'ERROR, check it.'
+            nameMessage = 'Name: ' + nameFeedback.innerText + '\n';
         } else {
-            allValidations.name = nameInput.value;
+            nameMessage = 'Name: ' + nameInput.value + '\n';
         }
     })
     nameInput.addEventListener('focus', function () {
@@ -137,17 +114,17 @@ document.addEventListener('DOMContentLoaded', function () {
     surnameInput.addEventListener('blur', function () {
         if (!validationText(surnameInput.value) || !validationStringLength(surnameInput.value, 3) ||
             validationNumber(surnameInput.value)) {
-            const nameFeedback = document.getElementById('surname-feedback');
-            nameFeedback.classList = 'feedback-invalid';
+            const surnameFeedback = document.getElementById('surname-feedback');
+            surnameFeedback.classList = 'feedback-invalid';
             surnameInput.classList = 'input-invalid';
-            allValidations.surname = 'ERROR, check it.'
+            surnameMessage = 'Surname: ' + surnameFeedback.innerText + '\n'
         } else {
-            allValidations.surname = surnameInput.value;
+            surnameMessage = 'Surname: ' + surnameInput.value + '\n';
         }
     })
     surnameInput.addEventListener('focus', function () {
-        const nameFeedback = document.getElementById('surname-feedback');
-        nameFeedback.classList = 'feedback';
+        const surnameFeedback = document.getElementById('surname-feedback');
+        surnameFeedback.classList = 'feedback';
         surnameInput.classList = '';
     })
     // validation from email
@@ -157,9 +134,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const emailFeedback = document.getElementById('email-feedback');
             emailFeedback.classList = 'feedback-invalid';
             emailInput.classList = 'input-invalid';
-            allValidations.email = 'ERROR, check it.'
+            emailMessage = 'Email: ' + emailFeedback.innerText + '\n'
         } else {
-            allValidations.email = emailInput.value;
+            emailMessage = 'Email: ' + emailInput.value + '\n';
         }
 
     })
@@ -178,9 +155,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const passwordFeedback = document.getElementById('password-feedback');
             passwordFeedback.classList = 'feedback-invalid';
             passwordInput.classList = 'input-invalid';
-            allValidations.password = 'ERROR, check it.'
+            passwordMessage = 'Password: ' + passwordFeedback.innerText + '\n'
         } else {
-            allValidations.password = passwordInput.value;
+            passwordMessage = 'Password: ' + passwordInput.value + '\n';
         }
     })
     passwordInput.addEventListener('focus', function () {
@@ -193,17 +170,17 @@ document.addEventListener('DOMContentLoaded', function () {
     repeatPasswordInput.addEventListener('blur', function () {
         if (!validationText(repeatPasswordInput.value) || !validationNumber(repeatPasswordInput.value) ||
             !validationStringLength(repeatPasswordInput.value, 8)) {
-            const passwordFeedback = document.getElementById('repeat-password-feedback');
-            passwordFeedback.classList = 'feedback-invalid';
+            const repeatPasswordFeedback = document.getElementById('repeat-password-feedback');
+            repeatPasswordFeedback.classList = 'feedback-invalid';
             repeatPasswordInput.classList = 'input-invalid';
-            allValidations.repeatPassword = 'ERROR, check it.'
+            repeatPasswordMessage = 'Repeat Password: ' + repeatPasswordFeedback.innerText + '\n'
         } else {
-            allValidations.repeatPassword = repeatPasswordInput.value;
+            repeatPasswordMessage = 'Repeat Password: ' + repeatPasswordInput.value + '\n';
         }
     })
     repeatPasswordInput.addEventListener('focus', function () {
-        const passwordFeedback = document.getElementById('repeat-password-feedback');
-        passwordFeedback.classList = 'feedback';
+        const repeatPasswordFeedback = document.getElementById('repeat-password-feedback');
+        repeatPasswordFeedback.classList = 'feedback';
         repeatPasswordInput.classList = '';
     })
     // validation from DNI
@@ -214,9 +191,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const dniFeedback = document.getElementById('dni-feedback');
             dniFeedback.classList = 'feedback-invalid';
             dniInput.classList = 'input-invalid';
-            allValidations.dni = 'ERROR, check it.'
+            dniMessage = 'DNI: ' + dniFeedback.innerText + '\n'
         } else {
-            allValidations.dni = dniInput.value;
+            dniMessage = 'DNI: ' + dniInput.value + '\n';
         }
     })
     dniInput.addEventListener('focus', function () {
@@ -225,28 +202,38 @@ document.addEventListener('DOMContentLoaded', function () {
         dniInput.classList = '';
     })
     //validation from brithdate
-    //Veremos que se hace acá
     const birthdateInput = document.getElementById('register-birthday');
     birthdateInput.addEventListener('blur', function () {
-
-        console.log(validationDate(birthdateInput.value.toString()));
+        if (!validationDate(birthdateInput.value)) {
+            const birthdayFeedback = document.getElementById('birthday-feedback');
+            birthdayFeedback.classList = 'feedback-invalid';
+            birthdateInput.classList = 'input-invalid';
+            birthdayMessage = 'Birthday: ' + birthdayFeedback.innerText + '\n'
+        } else {
+            birthdayMessage = 'Birthday: ' + birthdateInput.value + '\n';
+        }
+    })
+    birthdateInput.addEventListener('focus', function () {
+        const birthdayFeedback = document.getElementById('birthday-feedback');
+        birthdayFeedback.classList = 'feedback';
+        birthdateInput.classList = '';
     })
     //validation from telephone
     const telephoneNumberInput = document.getElementById('register-telephone');
     telephoneNumberInput.addEventListener('blur', function () {
         if (validationText(telephoneNumberInput.value) || !validationNumber(telephoneNumberInput.value) ||
             telephoneNumberInput.value.length != 10) {
-            const dniFeedback = document.getElementById('telephone-feedback');
-            dniFeedback.classList = 'feedback-invalid';
+            const telephoneFeedback = document.getElementById('telephone-feedback');
+            telephoneFeedback.classList = 'feedback-invalid';
             telephoneNumberInput.classList = 'input-invalid';
-            allValidations.telephone = 'ERROR, check it.'
+            telephoneMessage = 'Telephone: ' + telephoneFeedback.innerText + '\n'
         } else {
-            allValidations.telephone = telephoneNumberInput.value;
+            telephoneMessage = 'Telephone: ' + telephoneNumberInput.value + '\n';
         }
     })
     telephoneNumberInput.addEventListener('focus', function () {
-        const dniFeedback = document.getElementById('telephone-feedback');
-        dniFeedback.classList = 'feedback';
+        const telephoneFeedback = document.getElementById('telephone-feedback');
+        telephoneFeedback.classList = 'feedback';
         telephoneNumberInput.classList = '';
     })
     // validation from address
@@ -256,9 +243,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const addressFeedback = document.getElementById('address-feedback');
             addressFeedback.classList = 'feedback-invalid';
             adressInput.classList = 'input-invalid';
-            allValidations.address = 'ERROR, check it.'
+            addressMessage = 'Address: ' + addressFeedback.innerText + '\n'
         } else {
-            allValidations.address = adressInput.value;
+            addressMessage = 'Address: ' + adressInput.value + '\n';
         }
     })
     adressInput.addEventListener('focus', function () {
@@ -274,9 +261,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const cityFeedback = document.getElementById('city-feedback');
             cityFeedback.classList = 'feedback-invalid';
             cityInput.classList = 'input-invalid';
-            allValidations.city = 'ERROR, check it.'
+            cityMessage = 'City: ' + cityFeedback.innerText + '\n'
         } else {
-            allValidations.city = cityInput.value;
+            cityMessage = 'City: ' + cityInput.value + '\n';
         }
     })
     cityInput.addEventListener('focus', function () {
@@ -293,9 +280,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const zipFeedback = document.getElementById('zip-feedback');
             zipFeedback.classList = 'feedback-invalid';
             zipInput.classList = 'input-invalid';
-            allValidations.zip = 'ERROR, check it.'
+            zipMessage = 'ZIP: ' + zipFeedback.innerText + '\n'
         } else {
-            allValidations.zip = zipInput.value;
+            zipMessage = 'ZIP: ' + zipInput.value + '\n';
         }
     })
     zipInput.addEventListener('focus', function () {
@@ -307,6 +294,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var submitSignUp = document.getElementById('signup-submit');
     submitSignUp.addEventListener('click', function () {
-        alert(JSON.stringify(allValidations));
+        validationsMessageLogin =
+            nameMessage +
+            surnameMessage +
+            emailMessage +
+            passwordMessage +
+            repeatPasswordMessage +
+            dniMessage +
+            birthdayMessage +
+            telephoneMessage +
+            addressMessage +
+            cityMessage +
+            zipMessage;
+        alert(validationsMessageLogin);
     })
 })
