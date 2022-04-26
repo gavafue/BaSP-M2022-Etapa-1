@@ -67,7 +67,7 @@ form {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    padding: 5px 0 5px 60px;
+    padding: 5px 40px;
 }
 
 .login-bottom div {
