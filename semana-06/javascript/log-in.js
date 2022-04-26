@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (var i = 0; i < signUp.length; i++) {
         const boton = signUp[i];
         boton.addEventListener('click', function () {
-            window.location = 'sign-up.html'
+            window.location = 'sign-up.html';
         })
     }
     emailInput.addEventListener('blur', function () {
@@ -71,11 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
         passwordFeedback.classList = 'feedback';
         passwordInput.classList = '';
     })
-
     var submitLogin = document.getElementById('login-submit');
     submitLogin.addEventListener('click', function () {
         validationsMessageLogin = emailMessageLogin + passwordMessageLogin;
         alert(validationsMessageLogin);
     })
-
 })

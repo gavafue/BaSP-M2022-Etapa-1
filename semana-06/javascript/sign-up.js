@@ -1,16 +1,16 @@
 //Objeto que almacena todos los errores
-var validationsMessageLogin = "";
-var nameMessage = 'Name: ' + "This input is empty \n";
-var surnameMessage = 'Surname: ' + "This input is empty \n";
-var emailMessage = 'Email: ' + "This input is empty \n";
-var passwordMessage = 'Password: ' + "This input is empty \n";
-var repeatPasswordMessage = 'Repeat Password: ' + "This input is empty \n";
-var dniMessage = 'DNI: ' + "This input is empty \n";
-var birthdayMessage = 'Birthday: ' + "This input is empty \n";
-var telephoneMessage = 'Telephone: ' + "This input is empty \n";
-var addressMessage = 'Address: ' + "This input is empty \n";
-var cityMessage = 'City: ' + "This input is empty \n";
-var zipMessage = 'ZIP: ' + "This input is empty \n";
+var validationsMessageLogin = '';
+var nameMessage = 'Name: ' + 'This input is empty \n';
+var surnameMessage = 'Surname: ' + 'This input is empty \n';
+var emailMessage = 'Email: ' + 'This input is empty \n';
+var passwordMessage = 'Password: ' + 'This input is empty \n';
+var repeatPasswordMessage = 'Repeat Password: ' + 'This input is empty \n';
+var dniMessage = 'DNI: ' + 'This input is empty \n';
+var birthdayMessage = 'Birthday: ' + 'This input is empty \n';
+var telephoneMessage = 'Telephone: ' + 'This input is empty \n';
+var addressMessage = 'Address: ' + 'This input is empty \n';
+var cityMessage = 'City: ' + 'This input is empty \n';
+var zipMessage = 'ZIP: ' + 'This input is empty \n';
 
 function validationText(string) {
     var hasLetter = false;
@@ -73,9 +73,7 @@ function validationDate(string) {
     var inputDate = new Date(string);
     return todayDate > inputDate;
 }
-
 document.addEventListener('DOMContentLoaded', function () {
-
     //Home and login Buttons
     var homeButton = document.getElementsByClassName('home');
     for (var i = 0; i < homeButton.length; i++) {
@@ -85,10 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
     var logIn = document.getElementsByClassName('log-in');
-    for (let i = 0; i < logIn.length; i++) {
+    for (var i = 0; i < logIn.length; i++) {
         const boton = logIn[i];
         boton.addEventListener('click', function () {
-            window.location = 'log-in.html'
+            window.location = 'log-in.html';
         })
     }
     //validation from name and surname.
@@ -110,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
         nameFeedback.classList = 'feedback';
         nameInput.classList = '';
     })
-
     surnameInput.addEventListener('blur', function () {
         if (!validationText(surnameInput.value) || !validationStringLength(surnameInput.value, 3) ||
             validationNumber(surnameInput.value)) {
@@ -145,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
         emailFeedback.classList = 'feedback';
         emailInput.classList = '';
     })
-
     //validation from password
     const passwordInput = document.getElementById('register-password');
     passwordInput.addEventListener('blur', function () {
@@ -155,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const passwordFeedback = document.getElementById('password-feedback');
             passwordFeedback.classList = 'feedback-invalid';
             passwordInput.classList = 'input-invalid';
-            passwordMessage = 'Password: ' + passwordFeedback.innerText + '\n'
+            passwordMessage = 'Password: ' + passwordFeedback.innerText + '\n';
         } else {
             passwordMessage = 'Password: ' + passwordInput.value + '\n';
         }
@@ -173,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const repeatPasswordFeedback = document.getElementById('repeat-password-feedback');
             repeatPasswordFeedback.classList = 'feedback-invalid';
             repeatPasswordInput.classList = 'input-invalid';
-            repeatPasswordMessage = 'Repeat Password: ' + repeatPasswordFeedback.innerText + '\n'
+            repeatPasswordMessage = 'Repeat Password: ' + repeatPasswordFeedback.innerText + '\n';
         } else {
             repeatPasswordMessage = 'Repeat Password: ' + repeatPasswordInput.value + '\n';
         }
@@ -191,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const dniFeedback = document.getElementById('dni-feedback');
             dniFeedback.classList = 'feedback-invalid';
             dniInput.classList = 'input-invalid';
-            dniMessage = 'DNI: ' + dniFeedback.innerText + '\n'
+            dniMessage = 'DNI: ' + dniFeedback.innerText + '\n';
         } else {
             dniMessage = 'DNI: ' + dniInput.value + '\n';
         }
@@ -208,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const birthdayFeedback = document.getElementById('birthday-feedback');
             birthdayFeedback.classList = 'feedback-invalid';
             birthdateInput.classList = 'input-invalid';
-            birthdayMessage = 'Birthday: ' + birthdayFeedback.innerText + '\n'
+            birthdayMessage = 'Birthday: ' + birthdayFeedback.innerText + '\n';
         } else {
             birthdayMessage = 'Birthday: ' + birthdateInput.value + '\n';
         }
@@ -226,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const telephoneFeedback = document.getElementById('telephone-feedback');
             telephoneFeedback.classList = 'feedback-invalid';
             telephoneNumberInput.classList = 'input-invalid';
-            telephoneMessage = 'Telephone: ' + telephoneFeedback.innerText + '\n'
+            telephoneMessage = 'Telephone: ' + telephoneFeedback.innerText + '\n';
         } else {
             telephoneMessage = 'Telephone: ' + telephoneNumberInput.value + '\n';
         }
@@ -243,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const addressFeedback = document.getElementById('address-feedback');
             addressFeedback.classList = 'feedback-invalid';
             adressInput.classList = 'input-invalid';
-            addressMessage = 'Address: ' + addressFeedback.innerText + '\n'
+            addressMessage = 'Address: ' + addressFeedback.innerText + '\n';
         } else {
             addressMessage = 'Address: ' + adressInput.value + '\n';
         }
@@ -261,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const cityFeedback = document.getElementById('city-feedback');
             cityFeedback.classList = 'feedback-invalid';
             cityInput.classList = 'input-invalid';
-            cityMessage = 'City: ' + cityFeedback.innerText + '\n'
+            cityMessage = 'City: ' + cityFeedback.innerText + '\n';
         } else {
             cityMessage = 'City: ' + cityInput.value + '\n';
         }
@@ -271,7 +267,6 @@ document.addEventListener('DOMContentLoaded', function () {
         cityFeedback.classList = 'feedback';
         cityInput.classList = '';
     })
-
     //validation from ZIP
     const zipInput = document.getElementById('register-zip');
     zipInput.addEventListener('blur', function () {
@@ -280,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const zipFeedback = document.getElementById('zip-feedback');
             zipFeedback.classList = 'feedback-invalid';
             zipInput.classList = 'input-invalid';
-            zipMessage = 'ZIP: ' + zipFeedback.innerText + '\n'
+            zipMessage = 'ZIP: ' + zipFeedback.innerText + '\n';
         } else {
             zipMessage = 'ZIP: ' + zipInput.value + '\n';
         }
@@ -290,8 +285,6 @@ document.addEventListener('DOMContentLoaded', function () {
         zipFeedback.classList = 'feedback';
         zipInput.classList = '';
     })
-
-
     var submitSignUp = document.getElementById('signup-submit');
     submitSignUp.addEventListener('click', function () {
         validationsMessageLogin =
