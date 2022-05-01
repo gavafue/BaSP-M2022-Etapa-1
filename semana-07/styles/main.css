@@ -258,6 +258,21 @@ div#about-us {
     font-family: 'roboto regular';
 }
 
+.feedback {
+    display: none;
+}
+
+.feedback-invalid {
+    display: block;
+    color: red;
+    font-size: 14px;
+}
+
+.input-invalid {
+    background: rgba(255, 0, 0, 0.19);
+    border: 1px solid #ED2626;
+}
+
 .contact-form button {
     width: 40%;
     height: 30px;
@@ -324,7 +339,7 @@ div#footer-img img {
         display: flex;
         flex-direction: column;
         margin: 20px;
-        width:75%;
+        width: 75%;
     }
 
     .contact-form form {

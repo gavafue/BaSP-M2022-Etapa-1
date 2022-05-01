@@ -100,12 +100,14 @@ window.onload = function () {
                 })
                 .then(function (data) {
                     alert(validationMessageLogin + '\n' + data.msg);
-                }).catch(function (error) {
+                })
+                .catch(function (error) {
                     alert(error.msg);
                 });
 
         } else {
-            alert('Request rejected!\nOne or more inputs are not valid.\n' + validationMessageLogin +
+            alert('Request rejected!\nOne or more inputs are not valid.\n' +
+                validationMessageLogin +
                 '\nCheck the inputs errors before continue!')
 
         }

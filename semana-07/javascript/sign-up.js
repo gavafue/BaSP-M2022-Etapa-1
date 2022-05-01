@@ -11,24 +11,7 @@
 // 'cityMessage':'This input is empty',
 // 'zipMessage':'This input is empty',
 // };
-function checkLocalStorageCredentials() {
-    if (localStorage.name && localStorage.surname && localStorage.email &&
-        localStorage.password && localStorage.dni && localStorage.birthdate &&
-        localStorage.telephone && localStorage.address && localStorage.city &&
-        localStorage.zip) {
-        nameInput.value = localStorage.name;
-        surnameInput.value = localStorage.surname;
-        emailInput.value = localStorage.email;
-        passwordInput.value = localStorage.password;
-        repeatPasswordInput.value = localStorage.password;
-        dniInput.value = localStorage.dni;
-        birthdateInput.value = localStorage.birthdate;
-        telephoneNumberInput.value = localStorage.telephone;
-        addressInput.value = localStorage.address;
-        cityInput.value = localStorage.city;
-        zipInput.value = localStorage.zip;
-    }
-}
+
 
 function validationHasText(string) {
     var hasLetter = false;
@@ -127,7 +110,24 @@ window.onload = function () {
     var zipFeedback = document.getElementById('zip-feedback');
     var submitSignUp = document.getElementById('signup-submit');
 
-
+    function checkLocalStorageCredentials() {
+        if (localStorage.name && localStorage.surname && localStorage.email &&
+            localStorage.password && localStorage.dni && localStorage.birthdate &&
+            localStorage.telephone && localStorage.address && localStorage.city &&
+            localStorage.zip) {
+            nameInput.value = localStorage.name;
+            surnameInput.value = localStorage.surname;
+            emailInput.value = localStorage.email;
+            passwordInput.value = localStorage.password;
+            repeatPasswordInput.value = localStorage.password;
+            dniInput.value = localStorage.dni;
+            birthdateInput.value = localStorage.birthdate;
+            telephoneNumberInput.value = localStorage.telephone;
+            addressInput.value = localStorage.address;
+            cityInput.value = localStorage.city;
+            zipInput.value = localStorage.zip;
+        }
+    }
     checkLocalStorageCredentials();
     //ERROR MESSAGES
     var validationsMessageLogin = '';
@@ -142,6 +142,7 @@ window.onload = function () {
     var addressMessage = 'Address: ' + addressInput.value + '\n';
     var cityMessage = 'City: ' + cityInput.value + '\n';
     var zipMessage = 'ZIP: ' + zipInput.value + '\n';
+
     for (var i = 0; i < homeButton.length; i++) {
         var button = homeButton[i];
         button.addEventListener('click', function () {
@@ -404,7 +405,8 @@ window.onload = function () {
                     alert(error.msg);
                 });
         } else {
-            alert('One or more inputs are not valid.\n' + validationsMessageLogin + '\n¡Check the inputs errors before continue!')
+            alert('One or more inputs are not valid.\n' + validationsMessageLogin +
+                '\n¡Check the inputs errors before continue!')
         }
     }
 
