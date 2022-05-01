@@ -1,17 +1,104 @@
+// var validationsMessageLogin = {
+//     'nameMessage': 'This input is empty',
+//     'surnameMessage': 'This input is empty',
+//     'emailMessage': 'This input is empty',
+//     'passwordMessage': 'This input is empty',
+// 'repeatPasswordMessage':'This input is empty',
+// 'dniMessage':'This input is empty',
+// 'birthdayMessage':'This input is empty',
+// 'telephoneMessage':'This input is empty',
+// 'addressMessage':'This input is empty',
+// 'cityMessage':'This input is empty',
+// 'zipMessage':'This input is empty',
+// };
+function checkLocalStorageCredentials() {
+    if (localStorage.name && localStorage.surname && localStorage.email &&
+        localStorage.password && localStorage.dni && localStorage.birthdate &&
+        localStorage.telephone && localStorage.address && localStorage.city &&
+        localStorage.zip) {
+        nameInput.value = localStorage.name;
+        surnameInput.value = localStorage.surname;
+        emailInput.value = localStorage.email;
+        passwordInput.value = localStorage.password;
+        repeatPasswordInput.value = localStorage.password;
+        dniInput.value = localStorage.dni;
+        birthdateInput.value = localStorage.birthdate;
+        telephoneNumberInput.value = localStorage.telephone;
+        addressInput.value = localStorage.address;
+        cityInput.value = localStorage.city;
+        zipInput.value = localStorage.zip;
+    }
+}
+
+function validationHasText(string) {
+    var hasLetter = false;
+    for (var i = 0; i < string.length; i++) {
+        var element = string[i];
+        if (isNaN(element)) {
+            hasLetter = true;
+        }
+    }
+    return hasLetter;
+}
+
+function validationHasNumber(string) {
+    var hasNumber = false;
+    for (var i = 0; i < string.length; i++) {
+        var element = string[i];
+        if (!isNaN(element)) {
+            hasNumber = true;
+        }
+    }
+    return hasNumber;
+}
+
+function validationEmail(email) {
+    var emailConditions = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+    return emailConditions.test(email);
+}
+
+function validationStringLength(string, number) {
+    return string.length >= number;
+}
+
+function validationTextNumberAndSpaces(string) {
+    var gotSpace = false;
+    var firstSpace;
+    if (validationHasNumber(string) && validationHasText(string)) {
+        if (string.indexOf(' ') != -1 && string.indexOf(' ') != 0 && string.indexOf(' ') != string.length) {
+            firstSpace = string.indexOf(' ');
+            if (!isNaN(string[firstSpace + 1])) {
+                gotSpace = true;
+            }
+        }
+    }
+    return gotSpace;
+}
+
+function lettersCounter(string) {
+    var letters = 0;
+    for (var i = 0; i < string.length; i++) {
+        var element = string[i];
+        if (isNaN(element)) {
+            letters++;
+        }
+    }
+    return letters;
+}
+
+function validationBirthdateFormat(string) {
+    var dateIsValid = false;
+    if (string.length == 10) {
+        if (string[2] == '/' && string[5] == '/') {
+            var todayDate = new Date();
+            var birthdayDate = new Date(string.substring(6), string.substring(3, 5) - 1, string.substring(0, 2));
+            dateIsValid = todayDate > birthdayDate;
+        }
+    }
+    return dateIsValid;
+}
+
 window.onload = function () {
-    //ERROR MESSAGES
-    var validationsMessageLogin = '';
-    var nameMessage = 'Name: ' + 'This input is empty \n';
-    var surnameMessage = 'Surname: ' + 'This input is empty \n';
-    var emailMessage = 'Email: ' + 'This input is empty \n';
-    var passwordMessage = 'Password: ' + 'This input is empty \n';
-    var repeatPasswordMessage = 'Repeat Password: ' + 'This input is empty \n';
-    var dniMessage = 'DNI: ' + 'This input is empty \n';
-    var birthdayMessage = 'Birthday: ' + 'This input is empty \n';
-    var telephoneMessage = 'Telephone: ' + 'This input is empty \n';
-    var addressMessage = 'Address: ' + 'This input is empty \n';
-    var cityMessage = 'City: ' + 'This input is empty \n';
-    var zipMessage = 'ZIP: ' + 'This input is empty \n';
     //HEADER BUTTONS
     var homeButton = document.getElementsByClassName('home');
     var logInButton = document.getElementsByClassName('log-in');
@@ -40,25 +127,21 @@ window.onload = function () {
     var zipFeedback = document.getElementById('zip-feedback');
     var submitSignUp = document.getElementById('signup-submit');
 
-    function checkLocalStorageCredentials() {
-        if (localStorage.name && localStorage.surname && localStorage.email &&
-            localStorage.password && localStorage.dni && localStorage.birthdate &&
-            localStorage.telephone && localStorage.address && localStorage.city &&
-            localStorage.zip) {
-            nameInput.value = localStorage.name;
-            surnameInput.value = localStorage.surname;
-            emailInput.value = localStorage.email;
-            passwordInput.value = localStorage.password;
-            repeatPasswordInput.value = localStorage.password;
-            dniInput.value = localStorage.dni;
-            birthdateInput.value = localStorage.birthdate;
-            telephoneNumberInput.value = localStorage.telephone;
-            addressInput.value = localStorage.address;
-            cityInput.value = localStorage.city;
-            zipInput.value = localStorage.zip;
-        }
-    }
+
     checkLocalStorageCredentials();
+    //ERROR MESSAGES
+    var validationsMessageLogin = '';
+    var nameMessage = 'Name: ' + nameInput.value + '\n';
+    var surnameMessage = 'Surname: ' + surnameInput.value + '\n';
+    var emailMessage = 'Email: ' + emailInput.value + '\n';
+    var passwordMessage = 'Password: ' + passwordInput.value + '\n';
+    var repeatPasswordMessage = 'Repeat Password: ' + repeatPasswordInput.value + '\n';
+    var dniMessage = 'DNI: ' + dniInput.value + '\n';
+    var birthdayMessage = 'Birthday: ' + birthdateInput.value + '\n';
+    var telephoneMessage = 'Telephone: ' + telephoneNumberInput.value + '\n';
+    var addressMessage = 'Address: ' + addressInput.value + '\n';
+    var cityMessage = 'City: ' + cityInput.value + '\n';
+    var zipMessage = 'ZIP: ' + zipInput.value + '\n';
     for (var i = 0; i < homeButton.length; i++) {
         var button = homeButton[i];
         button.addEventListener('click', function () {
@@ -71,74 +154,6 @@ window.onload = function () {
         button.addEventListener('click', function () {
             window.location = 'log-in.html';
         })
-    }
-
-    function validationHasText(string) {
-        var hasLetter = false;
-        for (var i = 0; i < string.length; i++) {
-            var element = string[i];
-            if (isNaN(element)) {
-                hasLetter = true;
-            }
-        }
-        return hasLetter;
-    }
-
-    function validationHasNumber(string) {
-        var hasNumber = false;
-        for (var i = 0; i < string.length; i++) {
-            var element = string[i];
-            if (!isNaN(element)) {
-                hasNumber = true;
-            }
-        }
-        return hasNumber;
-    }
-
-    function validationEmail(email) {
-        var emailConditions = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-        return emailConditions.test(email);
-    }
-
-    function validationStringLength(string, number) {
-        return string.length >= number;
-    }
-
-    function validationTextNumberAndSpaces(string) {
-        var gotSpace = false;
-        var firstSpace;
-        if (validationHasNumber(string) && validationHasText(string)) {
-            if (string.indexOf(' ') != -1 && string.indexOf(' ') != 0 && string.indexOf(' ') != string.length) {
-                firstSpace = string.indexOf(' ');
-                if (!isNaN(string[firstSpace + 1])) {
-                    gotSpace = true;
-                }
-            }
-        }
-        return gotSpace;
-    }
-
-    function lettersCounter(string) {
-        var letters = 0;
-        for (var i = 0; i < string.length; i++) {
-            var element = string[i];
-            if (isNaN(element)) {
-                letters++;
-            }
-        }
-        return letters;
-    }
-
-    function validationBirthdateFormat(string) {
-        var dateIsValid = false;
-        if (string.length == 10) {
-            if (string[2] == "/" && string[5] == "/") {
-                var todayDate = new Date();
-                var birthdayDate = new Date(string.substring(6), string.substring(3, 5) - 1, string.substring(0, 2));
-                dateIsValid = todayDate > birthdayDate;
-            }
-        }
-        return dateIsValid;
     }
 
     function transformInvalidName() {
@@ -327,7 +342,6 @@ window.onload = function () {
             addressMessage +
             cityMessage +
             zipMessage;
-        alert(validationsMessageLogin);
         event.preventDefault();
         serverRequest();
     }
@@ -380,12 +394,17 @@ window.onload = function () {
                     return response.json();
                 })
                 .then(function (data) {
-                    alert(data.msg);
-                }).then(saveCredentialsLocalStorage());
-
-
+                    if (data.success == true) {
+                        alert('¡Request done!\n' + validationsMessageLogin + '\n' + data.msg);
+                        saveCredentialsLocalStorage();
+                    } else {
+                        alert(data.msg);
+                    }
+                }).catch(function (error) {
+                    alert(error.msg);
+                });
         } else {
-            alert('¡Check the inputs errors before continue!')
+            alert('One or more inputs are not valid.\n' + validationsMessageLogin + '\n¡Check the inputs errors before continue!')
         }
     }
 

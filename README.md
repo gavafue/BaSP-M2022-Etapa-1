@@ -60,3 +60,10 @@ We started with javascript so, in that week are placed some exercises about arra
 We now are using the Javascript to give functions to landing, sign up and log in. In this example, the Javascript was used to validate differents input in a form, using DOM as to validate as to manage hidden blocks. Enter to the address below and try the forms and complete using the rules explicited there.
 
 - [Github Pages - 6th week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-06/views)
+#### **Seventh week**
+
+The javascript now is used to follow the model client-server due to we are using the function fetch to give and get information of te server as login as as sign up in order to allow a the comuniction or reject it. 
+- Try on the login use the following credentials: rose@radiumrocket.com and password: BaSP2022.
+- On the sign up you've to respect all the requirements to make a register.
+
+  - [Github Pages - 7th week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-07/views)

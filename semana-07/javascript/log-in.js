@@ -77,9 +77,8 @@ window.onload = function () {
 
     function showAlertWithFeedbacks(event) {
         validationMessageLogin = emailMessageLogin + passwordMessageLogin;
-        alert(validationMessageLogin);
-        serverRequest();
         event.preventDefault();
+        serverRequest();
     }
 
     function showAlertSentPassword() {
@@ -100,11 +99,14 @@ window.onload = function () {
                     return response.json();
                 })
                 .then(function (data) {
-                    alert(data.msg);
+                    alert(validationMessageLogin + '\n' + data.msg);
+                }).catch(function (error) {
+                    alert(error.msg);
                 });
 
         } else {
-            alert('¡Check the inputs errors before continue!')
+            alert('Request rejected!\nOne or more inputs are not valid.\n' + validationMessageLogin +
+                '\nCheck the inputs errors before continue!')
 
         }
     }
