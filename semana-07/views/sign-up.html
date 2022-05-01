@@ -61,62 +61,63 @@
                         <fieldset>
                             <label for="register-name">Name</label>
                             <input type="text" name="register-name" id="register-name" placeholder="Write your name">
-                            <div id="name-feedback" class="feedback">The name must only contain letters and at least three
-                                of them.</div>
+                            <span id="name-feedback" class="feedback">The name must only contain letters and at least three
+                                of them.</span>
                             <label for="register-surname">Surname</label>
                             <input type="text" name="register-surname" id="register-surname"
                                 placeholder="Write your surname">
-                            <div id="surname-feedback" class="feedback">The surname must only contain letters. At least
+                            <span id="surname-feedback" class="feedback">The surname must only contain letters. At least
                                 three characters.
-                            </div>
+                            </span>
                             <label for="register-email">Email</label>
                             <input type="email" name="register-email" id="register-email" placeholder="Write your email">
-                            <div id="email-feedback" class="feedback">The email has not a format valid.</div>
+                            <span id="email-feedback" class="feedback">The email has not a format valid.</span>
                             <label for="register-password">Password</label>
                             <input type="text" name="register-password" id="register-password"
                                 placeholder="Write your password">
-                            <div id="password-feedback" class="feedback">The password has to contain numbers and letters.
+                            <span id="password-feedback" class="feedback">The password has to contain numbers and letters.
                                 At least 8 characters.
-                            </div>
+                            </span>
                             <label for="register-repeat-password">Repeat your password</label>
                             <input type="text" name="register-repeat-password" id="register-repeat-password"
                                 placeholder="Repeat your password">
-                            <div id="repeat-password-feedback" class="feedback">The password has to contain numbers and
+                            <span id="repeat-password-feedback" class="feedback">The password has to contain numbers and
                                 letters. At least 8 characters.
-                            </div>
+                            </span>
                         </fieldset>
                         <fieldset>
                             <label for="register-dni">DNI</label>
                             <input type="number" name="register-dni" id="register-dni" placeholder="Write your DNI">
-                            <div id="dni-feedback" class="feedback">The DNI must to contain only numbers. At least eight
-                                characters.</div>
+                            <span id="dni-feedback" class="feedback">The DNI must to contain only numbers. At least eight
+                                characters.</span>
                             <label for="register-birthday">Birthday</label>
-                            <input type="date" name="register-birthday" id="register-birthday"
+                            <input type="text" name="register-birthday" id="register-birthday"
                                 placeholder="Writhe you birthday">
-                            <div id="birthday-feedback" class="feedback">The date is later of the date of today.
-                            </div>
+                            <span id="birthday-feedback" class="feedback">The date has to respect the format dd/mm/yyyy and
+                                be before of today.
+                            </span>
                             <label for="register-telephone">Telephone number</label>
                             <input type="number" name="register-telephone" id="register-telephone"
                                 placeholder="Write your telephone">
-                            <div id="telephone-feedback" class="feedback">The telephone must to contain only numbers. Ten
+                            <span id="telephone-feedback" class="feedback">The telephone must to contain only numbers. Ten
                                 characters are allowed.
-                            </div>
+                            </span>
                             <label for="register-address">Address</label>
                             <input type="text" name="register-address" id="register-address"
                                 placeholder="Write your address">
-                            <div id="address-feedback" class="feedback">The address must to contain numbers and letters. At
+                            <span id="address-feedback" class="feedback">The address must to contain numbers and letters. At
                                 least three letters and six characters.
-                            </div>
+                            </span>
                             <label for="register-city">City</label>
                             <input type="text" name="register-city" id="register-city" placeholder="Write your City">
-                            <div id="city-feedback" class="feedback">The city must to contain numbers. At least
+                            <span id="city-feedback" class="feedback">The city must to contain numbers. At least
                                 ten characters.
-                            </div>
+                            </span>
                             <label for="register-zip">Postal Code</label>
                             <input type="number" name="register-zip" id="register-zip" placeholder="Write your Postal Code">
-                            <div id="zip-feedback" class="feedback">The postal code must to contain only numbers. Between
+                            <span id="zip-feedback" class="feedback">The postal code must to contain only numbers. Between
                                 four and five characters are allowed.
-                            </div>
+                            </span>
                         </fieldset>
                     </div>
                     <button type="submit" id="signup-submit">Sign up</button>

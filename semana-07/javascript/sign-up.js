@@ -32,7 +32,7 @@ window.onload = function () {
     var birthdayFeedback = document.getElementById('birthday-feedback');
     var telephoneNumberInput = document.getElementById('register-telephone');
     var telephoneFeedback = document.getElementById('telephone-feedback');
-    var adressInput = document.getElementById('register-address');
+    var addressInput = document.getElementById('register-address');
     var addressFeedback = document.getElementById('address-feedback');
     var cityInput = document.getElementById('register-city');
     var cityFeedback = document.getElementById('city-feedback');
@@ -40,6 +40,25 @@ window.onload = function () {
     var zipFeedback = document.getElementById('zip-feedback');
     var submitSignUp = document.getElementById('signup-submit');
 
+    function checkLocalStorageCredentials() {
+        if (localStorage.name && localStorage.surname && localStorage.email &&
+            localStorage.password && localStorage.dni && localStorage.birthdate &&
+            localStorage.telephone && localStorage.address && localStorage.city &&
+            localStorage.zip) {
+            nameInput.value = localStorage.name;
+            surnameInput.value = localStorage.surname;
+            emailInput.value = localStorage.email;
+            passwordInput.value = localStorage.password;
+            repeatPasswordInput.value = localStorage.password;
+            dniInput.value = localStorage.dni;
+            birthdateInput.value = localStorage.birthdate;
+            telephoneNumberInput.value = localStorage.telephone;
+            addressInput.value = localStorage.address;
+            cityInput.value = localStorage.city;
+            zipInput.value = localStorage.zip;
+        }
+    }
+    checkLocalStorageCredentials();
     for (var i = 0; i < homeButton.length; i++) {
         var button = homeButton[i];
         button.addEventListener('click', function () {
@@ -54,7 +73,7 @@ window.onload = function () {
         })
     }
 
-    function validationText(string) {
+    function validationHasText(string) {
         var hasLetter = false;
         for (var i = 0; i < string.length; i++) {
             var element = string[i];
@@ -65,7 +84,7 @@ window.onload = function () {
         return hasLetter;
     }
 
-    function validationNumber(string) {
+    function validationHasNumber(string) {
         var hasNumber = false;
         for (var i = 0; i < string.length; i++) {
             var element = string[i];
@@ -88,7 +107,7 @@ window.onload = function () {
     function validationTextNumberAndSpaces(string) {
         var gotSpace = false;
         var firstSpace;
-        if (validationNumber(string) && validationText(string)) {
+        if (validationHasNumber(string) && validationHasText(string)) {
             if (string.indexOf(' ') != -1 && string.indexOf(' ') != 0 && string.indexOf(' ') != string.length) {
                 firstSpace = string.indexOf(' ');
                 if (!isNaN(string[firstSpace + 1])) {
@@ -110,15 +129,21 @@ window.onload = function () {
         return letters;
     }
 
-    function validationDate(string) {
-        var todayDate = new Date();
-        var inputDate = new Date(string);
-        return todayDate > inputDate;
+    function validationBirthdateFormat(string) {
+        var dateIsValid = false;
+        if (string.length == 10) {
+            if (string[2] == "/" && string[5] == "/") {
+                var todayDate = new Date();
+                var birthdayDate = new Date(string.substring(6), string.substring(3, 5) - 1, string.substring(0, 2));
+                dateIsValid = todayDate > birthdayDate;
+            }
+        }
+        return dateIsValid;
     }
 
     function transformInvalidName() {
-        if (!validationText(nameInput.value) || !validationStringLength(nameInput.value, 3) ||
-            validationNumber(nameInput.value)) {
+        if (!validationHasText(nameInput.value) || !validationStringLength(nameInput.value, 3) ||
+            validationHasNumber(nameInput.value)) {
             nameFeedback.classList = 'feedback-invalid';
             nameInput.classList = 'input-invalid';
             nameMessage = 'Name: ' + nameFeedback.innerText + '\n';
@@ -133,8 +158,8 @@ window.onload = function () {
     }
 
     function transformInvalidSurname() {
-        if (!validationText(surnameInput.value) || !validationStringLength(surnameInput.value, 3) ||
-            validationNumber(surnameInput.value)) {
+        if (!validationHasText(surnameInput.value) || !validationStringLength(surnameInput.value, 3) ||
+            validationHasNumber(surnameInput.value)) {
             surnameFeedback.classList = 'feedback-invalid';
             surnameInput.classList = 'input-invalid';
             surnameMessage = 'Surname: ' + surnameFeedback.innerText + '\n';
@@ -164,7 +189,7 @@ window.onload = function () {
     }
 
     function transformInvalidPassword() {
-        if (!validationText(passwordInput.value) || !validationNumber(passwordInput.value) ||
+        if (!validationHasText(passwordInput.value) || !validationHasNumber(passwordInput.value) ||
             !validationStringLength(passwordInput.value, 8)) {
             passwordFeedback.classList = 'feedback-invalid';
             passwordInput.classList = 'input-invalid';
@@ -180,7 +205,7 @@ window.onload = function () {
     }
 
     function transforInvalidRepeatPassword() {
-        if (!validationText(repeatPasswordInput.value) || !validationNumber(repeatPasswordInput.value) ||
+        if (!validationHasText(repeatPasswordInput.value) || !validationHasNumber(repeatPasswordInput.value) ||
             !validationStringLength(repeatPasswordInput.value, 8)) {
             repeatPasswordFeedback.classList = 'feedback-invalid';
             repeatPasswordInput.classList = 'input-invalid';
@@ -196,7 +221,7 @@ window.onload = function () {
     }
 
     function transformInvalidDNI() {
-        if (validationText(dniInput.value) || !validationNumber(dniInput.value) ||
+        if (validationHasText(dniInput.value) || !validationHasNumber(dniInput.value) ||
             !validationStringLength(dniInput.value, 8)) {
             dniFeedback.classList = 'feedback-invalid';
             dniInput.classList = 'input-invalid';
@@ -212,7 +237,7 @@ window.onload = function () {
     }
 
     function transformInvalidBirthday() {
-        if (!validationDate(birthdateInput.value)) {
+        if (!validationBirthdateFormat(birthdateInput.value)) {
             birthdayFeedback.classList = 'feedback-invalid';
             birthdateInput.classList = 'input-invalid';
             birthdayMessage = 'Birthday: ' + birthdayFeedback.innerText + '\n';
@@ -227,7 +252,7 @@ window.onload = function () {
     }
 
     function transformInvalidTelephone() {
-        if (validationText(telephoneNumberInput.value) || !validationNumber(telephoneNumberInput.value) ||
+        if (validationHasText(telephoneNumberInput.value) || !validationHasNumber(telephoneNumberInput.value) ||
             telephoneNumberInput.value.length != 10) {
             telephoneFeedback.classList = 'feedback-invalid';
             telephoneNumberInput.classList = 'input-invalid';
@@ -243,22 +268,22 @@ window.onload = function () {
     }
 
     function transformInvalidAddress() {
-        if (!validationTextNumberAndSpaces(adressInput.value) || !validationStringLength(adressInput.value, 6)) {
+        if (!validationTextNumberAndSpaces(addressInput.value) || !validationStringLength(addressInput.value, 6)) {
             addressFeedback.classList = 'feedback-invalid';
-            adressInput.classList = 'input-invalid';
+            addressInput.classList = 'input-invalid';
             addressMessage = 'Address: ' + addressFeedback.innerText + '\n';
         } else {
-            addressMessage = 'Address: ' + adressInput.value + '\n';
+            addressMessage = 'Address: ' + addressInput.value + '\n';
         }
     }
 
     function resetInvalidAddress() {
         addressFeedback.classList = 'feedback';
-        adressInput.classList = '';
+        addressInput.classList = '';
     }
 
     function trasnformInvalidCity() {
-        if (!validationText(cityInput.value) || !validationNumber(cityInput.value) ||
+        if (!validationHasText(cityInput.value) || !validationHasNumber(cityInput.value) ||
             lettersCounter(cityInput.value) < 3) {
             cityFeedback.classList = 'feedback-invalid';
             cityInput.classList = 'input-invalid';
@@ -274,7 +299,7 @@ window.onload = function () {
     }
 
     function transformInvalidZIP() {
-        if (!validationNumber(zipInput.value) || validationText(zipInput.value) ||
+        if (!validationHasNumber(zipInput.value) || validationHasText(zipInput.value) ||
             zipInput.value.length < 4 || zipInput.value.length > 5) {
             zipFeedback.classList = 'feedback-invalid';
             zipInput.classList = 'input-invalid';
@@ -289,7 +314,7 @@ window.onload = function () {
         zipInput.classList = '';
     }
 
-    function sendAlertWithFeedbacks() {
+    function sendAlertWithFeedbacks(event) {
         validationsMessageLogin =
             nameMessage +
             surnameMessage +
@@ -303,6 +328,78 @@ window.onload = function () {
             cityMessage +
             zipMessage;
         alert(validationsMessageLogin);
+        event.preventDefault();
+        serverRequest();
+    }
+
+    function allTheFormsInputAreOk() {
+        var validationNameInput = validationHasText(nameInput.value) &&
+            validationStringLength(nameInput.value, 3) && !validationHasNumber(nameInput.value);
+        var validationSurnameInput = validationHasText(surnameInput.value) &&
+            validationStringLength(surnameInput.value, 3) &&
+            !validationHasNumber(surnameInput.value);
+        var validationEmailInput = validationEmail(emailInput.value);
+        var validationPassWordInput = validationHasText(passwordInput.value) &&
+            validationHasNumber(passwordInput.value) &&
+            validationStringLength(passwordInput.value, 8);
+        var validationDniInput = !validationHasText(dniInput.value) &&
+            validationHasNumber(dniInput.value) &&
+            (dniInput.value.length == 7 || dniInput.value.length == 8);
+        var validationBirthayInput = validationBirthdateFormat(birthdateInput.value);
+        var validationTelephoneInput = !validationHasText(telephoneNumberInput.value) &&
+            validationHasNumber(telephoneNumberInput.value) &&
+            telephoneNumberInput.value.length == 10;
+        var validationAddressInput = validationTextNumberAndSpaces(addressInput.value) &&
+            validationStringLength(addressInput.value, 6);
+        var validationCityInput = validationHasText(cityInput.value) &&
+            validationHasNumber(cityInput.value) &&
+            lettersCounter(cityInput.value) > 3;
+        var validationZipInput = validationHasNumber(zipInput.value) &&
+            !validationHasText(zipInput.value) &&
+            (zipInput.value.length == 4 || zipInput.value.length == 5);
+        return validationNameInput && validationSurnameInput && validationEmailInput &&
+            validationPassWordInput && validationDniInput && validationBirthayInput &&
+            validationTelephoneInput && validationAddressInput && validationCityInput &&
+            validationZipInput;
+    }
+
+    function serverRequest() {
+        if (allTheFormsInputAreOk()) {
+            fetch('https://basp-m2022-api-rest-server.herokuapp.com/signup?' +
+                    'name=' + nameInput.value +
+                    '&lastName=' + surnameInput.value +
+                    '&email=' + emailInput.value +
+                    '&password=' + passwordInput.value +
+                    '&dni=' + dniInput.value +
+                    '&dob=' + birthdateInput.value +
+                    '&phone=' + telephoneNumberInput.value +
+                    '&address=' + addressInput.value +
+                    '&city=' + cityInput.value +
+                    '&zip=' + zipInput.value)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    alert(data.msg);
+                }).then(saveCredentialsLocalStorage());
+
+
+        } else {
+            alert('¡Check the inputs errors before continue!')
+        }
+    }
+
+    function saveCredentialsLocalStorage() {
+        localStorage.setItem('name', nameInput.value);
+        localStorage.setItem('surname', surnameInput.value);
+        localStorage.setItem('email', emailInput.value);
+        localStorage.setItem('password', passwordInput.value);
+        localStorage.setItem('dni', dniInput.value);
+        localStorage.setItem('birthdate', birthdateInput.value);
+        localStorage.setItem('telephone', telephoneNumberInput.value);
+        localStorage.setItem('address', addressInput.value);
+        localStorage.setItem('city', cityInput.value);
+        localStorage.setItem('zip', zipInput.value);
     }
 
 
@@ -322,8 +419,8 @@ window.onload = function () {
     birthdateInput.addEventListener('focus', resetInvalidBirthday)
     telephoneNumberInput.addEventListener('blur', transformInvalidTelephone);
     telephoneNumberInput.addEventListener('focus', resetInvalidTelephone);
-    adressInput.addEventListener('blur', transformInvalidAddress);
-    adressInput.addEventListener('focus', resetInvalidAddress);
+    addressInput.addEventListener('blur', transformInvalidAddress);
+    addressInput.addEventListener('focus', resetInvalidAddress);
     cityInput.addEventListener('blur', trasnformInvalidCity);
     cityInput.addEventListener('focus', resetInvalidCity);
     zipInput.addEventListener('blur', transformInvalidZIP);

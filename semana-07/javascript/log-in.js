@@ -87,13 +87,13 @@ window.onload = function () {
         window.location.reload();
     }
 
-    function formIsOk() {
+    function allTheFormsInputAreOk() {
         return validationEmail(emailInput.value) && validationTextNumber(passwordInput.value) &&
             passwordInput.value.length > 7;
     }
 
     function serverRequest() {
-        if (formIsOk()) {
+        if (allTheFormsInputAreOk()) {
             fetch('https://basp-m2022-api-rest-server.herokuapp.com/login?email=' +
                     emailInput.value + '&password=' + passwordInput.value)
                 .then(function (response) {
