@@ -1,7 +1,5 @@
 window.onload = function () {
-    var validationMessageLogin = "";
-    var emailMessageLogin = 'Email: ' + "This input is empty \n";
-    var passwordMessageLogin = 'Password: ' + "This input is empty \n";
+    var validationMessageLogin = '';
     var homeButton = document.getElementsByClassName('home');
     var signUp = document.getElementsByClassName('sign-up');
     var emailInput = document.getElementById('email');
@@ -10,21 +8,10 @@ window.onload = function () {
     var passwordFeedback = document.getElementById('password-feedback');
     var submitLogin = document.getElementById('login-submit');
     var forgotPassword = document.getElementById('forgot-password');
+    var emailMessageLogin = 'Email: ' + emailInput.value + '\n';
+    var passwordMessageLogin = 'Password: ' + passwordInput.value + ' \n';
 
-    function redirect(string) {
-        window.location = string;
-    }
-
-    function verifyCredentialsOnLocalstorage() {
-        var localStorageEmail = localStorage.getItem('email');
-        var localStoragePassord = localStorage.getItem('password');
-        if ((localStorageEmail != undefined) && (localStoragePassord != undefined)) {
-            emailInput.value = localStorageEmail;
-            passwordInput.value = localStoragePassord;
-        }
-    }
-    verifyCredentialsOnLocalstorage();
-
+    
     function validationEmail(email) {
         var emailConditions = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
         return emailConditions.test(email);
