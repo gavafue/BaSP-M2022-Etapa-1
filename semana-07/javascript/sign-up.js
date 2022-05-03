@@ -74,7 +74,7 @@ window.onload = function () {
             window.location = 'log-in.html';
         })
     }
-  
+
     function validationHasText(string) {
         var hasLetter = false;
         for (var i = 0; i < string.length; i++) {
@@ -112,7 +112,7 @@ window.onload = function () {
         if (validationHasNumber(string) && validationHasText(string)) {
             if (string.indexOf(' ') != -1 && string.indexOf(' ') != 0 && string.indexOf(' ') != string.length) {
                 firstSpace = string.indexOf(' ');
-                if (!isNaN(string[firstSpace + 1])) {
+                if (!isNaN(string[firstSpace + 1]) && isNaN(string[firstSpace - 1])) {
                     gotSpace = true;
                 }
             }
