@@ -11,7 +11,24 @@ window.onload = function () {
     var emailMessageLogin = 'Email: ' + emailInput.value + '\n';
     var passwordMessageLogin = 'Password: ' + passwordInput.value + ' \n';
 
-    
+    function redirect(string) {
+        window.location = string;
+    }
+
+    for (var i = 0; i < homeButton.length; i++) {
+        var button = homeButton[i];
+        button.addEventListener('click', function () {
+            redirect('index.html')
+        });
+    }
+
+    for (var i = 0; i < signUp.length; i++) {
+        var button = signUp[i];
+        button.addEventListener('click', function () {
+            redirect('sign-up.html')
+        });
+    }
+
     function validationEmail(email) {
         var emailConditions = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
         return emailConditions.test(email);
@@ -89,7 +106,7 @@ window.onload = function () {
                     alert(validationMessageLogin + '\n' + data.msg);
                 })
                 .catch(function (error) {
-                    alert(error.msg);
+                    alert('Something was failed in te comunication:' + error.name +'\n' + error.message);
                 });
 
         } else {
@@ -100,19 +117,7 @@ window.onload = function () {
         }
     }
 
-    for (var i = 0; i < homeButton.length; i++) {
-        var button = homeButton[i];
-        button.addEventListener('click', function () {
-            redirect('index.html')
-        });
-    }
 
-    for (var i = 0; i < signUp.length; i++) {
-        var button = signUp[i];
-        button.addEventListener('click', function () {
-            redirect('sign-up.html')
-        });
-    }
 
     emailInput.addEventListener('blur', transformInvalidEmail);
     emailInput.addEventListener('focus', resetTransformationsEmail);

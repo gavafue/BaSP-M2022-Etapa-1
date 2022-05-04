@@ -388,7 +388,7 @@ window.onload = function () {
                         alert(data.msg);
                     }
                 }).catch(function (error) {
-                    alert(error.msg);
+                    alert('Something was failed in te comunication:' + error.name +'\n' + error.message);
                 });
         } else {
             alert('One or more inputs are not valid.\n' + validationsMessageLogin +
