@@ -1,69 +1,57 @@
+# 🚀 BaSP 2022 - Etapa 1: Fundamentos de Desarrollo Web (Radium Rocket)
 
-# TRACKGENIX
+[![HTML5](https://img.shields.io/badge/HTML5-Semantics-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-Flexbox%20%26%20Grid-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![Bootcamp](https://img.shields.io/badge/Bootcamp-Radium%20Rocket-red?style=for-the-badge)]()
+[![Trackgenix](https://img.shields.io/badge/Stage-Trackgenix%20Origins-purple?style=for-the-badge)]()
 
-## Data Management Platform
-Hello! I'm Gabriel Vazquez and I'm working in this project called Trackgenix. This is a student project for the company Radium Rockets in their "Become a Professional Software" process where a software is developed that provides services in order to facilitate the recording of hours worked by each employee in each project and work team.
+Repositorio de trabajo, prácticas semanales y entregas progresivas de la **Etapa 1** del bootcamp formativo **"Become a Software Professional" (BaSP 2022)** de **Radium Rocket**.
 
-This project will allow register the amount hours worked for each employee and manage projects with differents employees and ranks for example Super Admin, Admin, Project Manager and employee. Each rank got differents tasks and tools developed in web app.
+Esta etapa sentó las bases de ingeniería frontend, maquetación semántica y desarrollo interactivo con JavaScript que culminaron en la construcción de la plataforma de gestión de horas y recursos humanos **Trackgenix**.
 
-  *This project is only used for educational objetives.*
+---
 
-    For use it you only need a web browser.
+## 📅 Hoja de Ruta Formativa (Semanas 01 a 07)
 
-  
+```mermaid
+flowchart TD
+    S1["Semana 01 & 02: Figma & HTML5<br/>Estructura semántica básica de landing page"] --> S3["Semana 03: CSS3 & Box Model<br/>Estilizado, fuentes y selectores"]
+    S3 --> S4["Semana 04: Layouts Modernos<br/>Flexbox, CSS Grid y Media Queries"]
+    S4 --> S5["Semana 05: JavaScript Core<br/>Variables, bucles, arreglos y algoritmos"]
+    S5 --> S6["Semana 06: DOM & Formularios<br/>Event listeners y validaciones dinámicas"]
+    S6 --> S7["Semana 07: Asincronismo & Fetch<br/>Promesas, APIs REST y preparación de Trackgenix"]
+```
 
+### Detalle de Módulos:
+* **Semana 01 / 02:** Análisis de especificaciones de diseño en Figma y traducción a etiquetas semánticas de HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+* **Semana 03:** Integración de hojas de estilo (`styles.css`), aplicación de `resets` normalizados, cascada y especificidad.
+* **Semana 04:** Maquetación responsiva (*mobile-first*), alineaciones con Flexbox y cuadrículas con CSS Grid.
+* **Semana 05:** Fundamentos de programación en JavaScript: tipos de datos primitivos, condicionales, funciones puras y manipulación de listas.
+* **Semana 06:** Interacción viva con el navegador mediante la API del DOM (`document.querySelector`), captura de eventos de teclado y ratón, y validación exhaustiva de inputs de formulario en tiempo real con mensajes de error visuales.
+* **Semana 07:** Introducción al asincronismo en JavaScript: manejo de `Promise`, `async/await`, peticiones HTTP con `fetch()` y estructuración de la futura aplicación completa de Trackgenix.
 
-## Authors
-- [@gavafue](https://www.github.com/gavafue)
+---
 
+## 📁 Estructura del Repositorio
 
-## Working progress
-### First stage
+```
+BaSP-M2022-Etapa-1/
+├── resets/          # Hojas de estilo de normalización y reseteo CSS
+├── semana-02/       # Estructura inicial y maquetado de landing page
+├── semana-03/       # Aplicación de reglas de estilo CSS3
+├── semana-04/       # Adaptabilidad responsiva con Flexbox y Grid
+├── semana-05/       # Ejercicios algorítmicos y funciones JavaScript
+├── semana-06/       # Control del DOM y validación de formularios interactivos
+├── semana-07/       # Consumo asíncrono y preparación de Trackgenix
+└── README.md        # Bitácora formativa del bootcamp
+```
 
-#### **First Week**
+---
 
-We work in figma project, working in a screenflow for the project. *You can't see it because it's on a private platform.*
-  
+## 👤 Autor
 
-#### **Second Week**
-
-On the second week, the technology used at the moment is HTML. I work on the structure of the landing previusly framed on figma.
-
- - [Github Pages - Second week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-02/)
-
-  
-
-#### **Third week**
-
-We began to work in CSS, working on the styles of the landing worked in the first week.
-- [Github Pages - Third week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-03/)
-
-
-  
-
-#### **Fourth week**
-
-In this week we began with Flexbox model and First Mobile Design in order to get responsive design. Try the address under with different devices.
-
-- [Github Pages - 4th week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-04/index.html)
-
-#### **Fifth week**
-
-We started with javascript so, in that week are placed some exercises about arrays, objects, variables, operators, control structures and functions.
-
-- [Github Pages - 5th week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-05/index.html)
-
-  
-### Second stage
-#### **Sixth week**
-
-We now are using the Javascript to give functions to landing, sign up and log in. In this example, the Javascript was used to validate differents input in a form, using DOM as to validate as to manage hidden blocks. Enter to the address below and try the forms and complete using the rules explicited there.
-
-- [Github Pages - 6th week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-06/views)
-#### **Seventh week**
-
-The javascript now is used to follow the model client-server due to we are using the function fetch to give and get information of te server as login as as sign up in order to allow a the comuniction or reject it. 
-- Try on the login use the following credentials: rose@radiumrocket.com and password: BaSP2022.
-- On the sign up you've to respect all the requirements to make a register.
-
-  - [Github Pages - 7th week](https://gavafue.github.io/BaSP-M2022-Etapa-1/semana-07/views)
+**Gabriel Vázquez**  
+*Docente de Informática & Full Stack Developer*  
+* [GitHub Profile](https://github.com/gavafue)  
+* [LinkedIn](https://www.linkedin.com/in/gavafue/)
